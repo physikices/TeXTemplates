@@ -1,5 +1,5 @@
 % !TEX root = monografia.tex
-\ProvidesPackage{relatorio-udesc}
+\ProvidesPackage{texmodel-udesc}
 
 %-----------------------------------------------%
 % Pacotes 
@@ -9,7 +9,8 @@
 \RequirePackage[utf8]{inputenc}	% Codificacao do documento (conversão automática dos acentos)
 \RequirePackage{lastpage}			  % Usado pela Ficha catalográfica
 \RequirePackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\RequirePackage{color,xcolor}	  % Controle das cores
+\RequirePackage{color}      	  % Controle das cores
+\RequirePackage[x11names]{xcolor}
 \RequirePackage{graphicx}			  % Inclusão de gráficos
 \RequirePackage{microtype} 			% para melhorias de justificação
 \RequirePackage{url}
@@ -19,16 +20,23 @@
 \RequirePackage{soulutf8}
 \RequirePackage{csquotes}
 \RequirePackage[printonlyused,withpage]{acronym}
-\RequirePackage{lipsum}				% para geração de dummy text
+\RequirePackage{lipsum}				  % para geração de dummy text
 \RequirePackage{array,booktabs,bookmark,multirow}
 \RequirePackage{ragged2e}
+
+% adicionando pacotes a partir daqui
 \RequirePackage{pdfpages}
 \RequirePackage{setspace}
+\RequirePackage{setspace}
+\RequirePackage{lettrine}
+\RequirePackage{GoudyIn}
+\RequirePackage{wrapfig}
+%\RequirePackage{fancyhdr}
 % para resolver o problema dos apostrofos e crases no listings
 \RequirePackage{upquote,listings}
 % Para formatar unidades físicas para o padrão usado no Brasil
 \RequirePackage{physunits}
-    \DeclareRobustCommand{\units@separator}{\,}
+  \DeclareRobustCommand{\units@separator}{\,}
 	\DeclareRobustCommand{\y}[1][ ]{\ensuremath{%
 	\expandafter\units@separator\mathrm{#1ano}}}
 	\DeclareRobustCommand{\Day}{\ensuremath{%
@@ -38,7 +46,7 @@
 % Pacotes de citações
 \RequirePackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \RequirePackage[
-    alf,
+  alf,
 	versalete,
 	abnt-emphasize = bf,
 	abnt-etal-list = 3,
@@ -66,6 +74,12 @@
 \newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+% ----------------------------------------------%
+% CONFIGURACOES LETTRINE
+% ----------------------------------------------%
+\renewcommand{\LettrineFontHook}{\color{VioletRed4}\GoudyInfamily{}}
+\setcounter{DefaultLines}{3}
+% ----------------------------------------------%
 
 %-----------------------------------------------%
 % CONFIGURAÇÕES DO BACKREF
@@ -84,7 +98,7 @@
 	\else
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
-
+%-----------------------------------------------%
 %-----------------------------------------------%
 % Cria página CAPA
 %-----------------------------------------------%
@@ -94,6 +108,7 @@
 %-----------------------------------------------%
 \input{03-elementos/03.1_pre-textual/03.1.1-folha_de_rosto.tex}
 %-----------------------------------------------%
+
 %-----------------------------------------------%
 % comando para imprimir texto de aprovação
 %-----------------------------------------------%
@@ -101,8 +116,6 @@
 \newcommand{\textoaprovacao}[1]{
     \renewcommand{\imprimirtextoaprovacao}{\begin{center}#1\end{center}}
 }%-----------------------------------------------%
-% Cria página FOLHA DE APROVACAO
-%\input{03-elementos/03.1_pre-textual/03.1.2-folha_de_aprovacao.tex}
 %-----------------------------------------------%
 % Configurações de aparência do PDF final
 %-----------------------------------------------%
@@ -116,12 +129,13 @@
     pdfauthor={\@author},%
     pdfsubject={\imprimirpreambulo},%
     pdfkeywords={\firstkey , \secondkey , \thirdkey .},% 
-    colorlinks=true,linkcolor=midnightblue,citecolor=midnightblue,urlcolor=black,%
+    colorlinks=true,
+    linkcolor=midnightblue,
+    citecolor=midnightblue,
+    urlcolor=black,%
     bookmarksdepth=4%
 }%
 \makeatother
-
-
 
 %-----------------------------------------------%
 % Espaçamentos entre linhas e parágrafos 
@@ -136,6 +150,19 @@
 %-----------------------------------------------%
 \makeindex
 %-----------------------------------------------%
+%-----------------------------------------------%
+% Configurações para inserir lista de quadros
+%-----------------------------------------------%
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+\setfloatlocations{quadro}{hbtp}
 
 %-----------------------------------------------%
 % Configurações para inserir código fonte
@@ -389,6 +416,21 @@
 \newcommand{\shell}{\lstset{style=shell}}
 \newcommand{\shellp}{\lstset{style=shellp}}
 
-%\includecode[shell]{l_olamundo}{Olá mundo em shell script}{codigos/ola.sh}
+
 
 \newcommand{\includecode}[4][c]{\lstinputlisting[captionpos=t,caption=#3, label=#2,escapechar={@*}, style=#1]{#4}}
+
+% ---------------------------------
+% Ambiente de Teoremas e Exercícios
+% ---------------------------------
+%\theoremstyle{definition}
+\newtheorem{quest}{Questão}
+\newtheorem{xca}{Problema}
+\newenvironment{prob}{%
+\par\noindent \begin{xca}}%
+{\end{xca}\noindent\rule{\textwidth}{1pt}}
+\newtheorem{sol}{Solução}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+% ---------------------------------

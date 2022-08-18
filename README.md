@@ -7,7 +7,7 @@
 Tecnologia utilizada: **abnTeX2** Modelo de Trabalho Academico em conformidade com ABNT NBR 14724:2011.
 
 ### Modelos
-- Relatório Estágio (*Licenciaturas*);
+- Relatório de Estágio (*Licenciaturas*);
 - Plano de Aula.
 
 > Baseado no estilo criado para o IFSC por [Emerson Mello](https://github.com/emersonmello/modelos-latex/tree/master/monografia)
