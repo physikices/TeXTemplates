@@ -1,0 +1,158 @@
+%-----------------------------------------------%
+% Modelo de Plano de Aula com três momentos pedagógicos
+%
+% Autor: Rodrigo Nascimento (2022-08-12)
+%-----------------------------------------------%
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% twoside para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+%	french,				% idioma adicional para hifenização
+%	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+]{abntex2}
+\selectlanguage{brazil}
+%-----------------------------------------------%
+% Informações do DOCUMENTO
+%-----------------------------------------------%
+\input{00-dados.tex}
+%-----------------------------------------------%
+
+%	Todas as indicações de pacotes e configurações estão no arquivo de estilo
+%  chamado texmodel-udesc.sty.
+\usepackage{texmodel-udesc}
+
+%-----------------------------------------------%
+% Estilo de cabeçalho que só contém o número da 
+% página e uma linha
+%-----------------------------------------------%
+\makepagestyle{cabecalholimpo}
+\makeevenhead{cabecalholimpo}{\thepage}{}{} % páginas pares
+\makeoddhead{cabecalholimpo}{}{}{\thepage} % páginas ímpares
+%\makeheadrule{cabecalholimpo}{\textwidth}{\normalrulethickness} % linha
+%-----------------------------------------------%
+
+%-----------------------------------------------%
+% Início do documento
+%-----------------------------------------------%
+\begin{document}
+% cabecalho
+\thispagestyle{empty}
+\begin{center}
+	\begin{minipage}[!]{\linewidth}
+        \begin{minipage}[!]{.19\linewidth}
+            \includegraphics[width=\linewidth]{img/logo.png}           
+        \end{minipage}
+        \begin{minipage}[!]{.8\linewidth}
+            \center
+            \ABNTEXchapterfont\normalsize\MakeUppercase{\imprimirinstituicao}
+            \par
+            \vspace*{10pt}                     
+            \ABNTEXchapterfont\normalsize\MakeUppercase{\centro}
+            \par
+            \vspace*{10pt}           
+            \ABNTEXchapterfont\normalsize\MakeUppercase{\disciplina}
+        \end{minipage}        
+    \end{minipage}
+    \\ \vspace{0.5cm}
+    \rule{\textwidth}{.5pt}   
+\end{center}
+    \textual
+    \begin{center}
+    \textbf{Plano de Aula: Intervenção Pedagógica nº 00X}
+    \par\end{center}
+    
+    \noindent \textbf{Estagiário(a): }\imprimirautor 
+    
+    \noindent \textbf{U.E.: }EEB NOME DA ESCOLA
+    
+    \noindent \textbf{Série: }Xº Ano\hfill{}\textbf{Turma: }Xº--N
+    
+    \noindent \textbf{Aula:} 00X\hfill{}\textbf{Data:} XX/XX/2022\hfill{}\textbf{Duração:} $XX\min$
+    \rule{\textwidth}{.5pt}
+    \bigskip{}  
+    
+
+    \noindent \begin{center}
+    \textbf{Título: Título da Aula}
+    \par\end{center}
+
+    \noindent \textbf{Resumo da aula: }
+
+    \par\noindent \textbf{Habilidades BNCC: }EM13CNT101; EM13CNT301.
+	
+    \section{Objetivo de Aprendizagem}
+    \begin{itemize}
+        \item Perceber 
+    \end{itemize}
+    
+    \medskip{}
+    
+    \noindent \textbf{Dimensão Conceitual:} \emph{Dimensão 01; Dimensão 02; Dimensão 03.}
+    \newpage
+    
+    \section{Procedimento Didático} 
+    \noindent \emph{1º Momento:} Título do primeiro momento.
+	\par\noindent\rule{.3\textwidth}{.5pt}  
+    \par\noindent \textbf{Tempo previsto:} XX minutos
+
+    \noindent \textbf{Dinâmica:} Descrever a dinâmica do primeiro momento.
+
+    \vspace{50pt}
+    \noindent \emph{2º Momento:} Título do segundo momento.
+	\par\noindent\rule{.3\textwidth}{.5pt}    
+    \par\noindent \textbf{Tempo previsto: }XX minutos
+	
+
+    \noindent \textbf{Dinâmica:} Descrever a dinâmica do segundo momento.
+
+	\vspace{50pt}
+    \noindent \emph{3º Momento:} Título do terceiro momento.
+	\par\noindent\rule{.3\textwidth}{.5pt}
+    \par\noindent \textbf{Dinâmica:} Descrever a dinâmica do terceiro momento.
+    
+	\noindent Uma citação qualquer \cite{LAMBERTS:2011}, e uma equação em destaque 
+
+    
+	\begin{align}
+		x^2&=ax-\nabla\vec{F}_\mu\nu
+	\end{align}
+	\bibliography{bibliografia.bib}
+    \begin{anexosenv}		    
+        \chapter{Sensibilidade Térmica}
+        \section{Materiais}
+        \begin{itemize}
+            \item 3 recipientes (copos);
+            \item 3 termômetros;
+            \item água em temperatura ambiente;
+            \item água aquecida ($40\Celsius\sim50\Celsius$);
+            \item água fria ($15\Celsius\sim20\Celsius$).
+        \end{itemize}
+        \section{Procedimento Experimental}
+        Coloque no primeiro recipiente água fria (com gelo); no segundo água à temperatura ambiente e no terceiro, água aquecida. Em seguida, coloque, ao mesmo tempo, uma mão na água gelada e a outra na água aquecida. Espere alguns instantes ($\sim5\min$) e coloque as duas mãos, ao mesmo tempo, no recipiente com água à temperatura ambiente.
+
+        \subsection{Questões para debater}
+        \begin{quest}
+            Quando as suas mãos estavam em recipientes separados você podia distinguir qual continha água aquecida e qual continha água gelada?
+        \end{quest}
+        \begin{quest}
+            Na situação descrita acima, é possível determinar a temperatura da água em algum dos recipientes?
+        \end{quest}
+        \begin{quest}
+            Ao juntarmos as mãos no recipiente em que está a água à temperatura ambiente, continuou a ter as mesmas sensações?
+        \end{quest}
+        \begin{quest}
+            Descreva o que sentiu.
+        \end{quest}
+    \end{anexosenv}
+\end{document}

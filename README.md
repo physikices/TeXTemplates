@@ -1,9 +1,15 @@
 # udesc-cct-latex
-## Repositório de trabalhos acadêmicos para a UDESC-CCT modelo LaTeX
+![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+## Repositório de trabalhos acadêmicos para a UDESC-CCT em LaTeX
 
 
 
->### abnTeX2: Modelo de Trabalho Academico em conformidade com ABNT NBR 14724:2011. 
+Tecnologia utilizada: **abnTeX2** Modelo de Trabalho Academico em conformidade com ABNT NBR 14724:2011.
 
-- Baseado no estilo criado para o IFSC por [Emerson Mello](https://github.com/emersonmello/modelos-latex/tree/master/monografia)
-- Adaptado por Rodrigo Nascimento.
+### Modelos
+- Relatório Estágio (*Licenciaturas*);
+- Plano de Aula.
+
+> Baseado no estilo criado para o IFSC por [Emerson Mello](https://github.com/emersonmello/modelos-latex/tree/master/monografia)
+
+> Adaptado por Rodrigo Nascimento.
