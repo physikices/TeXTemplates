@@ -452,3 +452,9 @@
 \DeclareMathOperator{\tg}{tg}
 \newcommand{\parder}[2]{\frac{\partial {#1}}{\partial {#2}}}
 % ---------------------------
+% -------------------------
+% Datas no formato dd/mm/yyyy
+% -------------------------
+\def\mydate{\leavevmode\hbox{\twodigits\day/\twodigits\month/\the\year}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+% -------------------------
