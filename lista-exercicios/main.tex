@@ -1,5 +1,5 @@
 %-----------------------------------------------%
-% Modelo de Plano de Aula com três momentos pedagógicos
+% Modelo de Lista de Exercícios
 %
 % Autor: Rodrigo Nascimento (2022-08-12)
 %-----------------------------------------------%
@@ -28,8 +28,8 @@
 \input{data/OMEE001.tex}
 %-----------------------------------------------%
 
-%	Todas as indicações de pacotes e configurações estão no arquivo de estilo
-%  chamado texmodel-udesc.sty.
+% Todas as indicações de pacotes e configurações estão no arquivo de estilo
+% chamado texmodel-udesc.sty.
 \usepackage{texmodel-udesc}
 
 %--------------------%
@@ -39,22 +39,10 @@
 % ---------------------------
 % Insere o CABEÇALHO (HEADER)
 % ---------------------------
-    \input{header.tex}    
+    \input{header.tex}  
+	\input{data/subheader.tex}  
 % ---------------------------
-% -----------------------------
-% Insere CAMPO DE IDENTIFICAÇÃO
-% -----------------------------    
-    \noindent \textbf{Aluno(a):} \imprimirautor
-    \par\noindent \textbf{Professor:} \imprimirorientador\hfill{}\textbf{Capítulo(s) Ref.:} I/II/III  
-    \par\noindent \textbf{\imprimirtipotrabalho} 001  \hfill{}\textbf{Data:}\imprimirdata\hfill{}\textbf{Fase:} LEF102-08U
-    \rule{\textwidth}{.5pt}
-    \bigskip{}
-    \begin{center}
-        \ABNTEXchapterfont\Large\MakeUppercase{\imprimirtitulo}
-    \end{center}
-
-    % Campo para OBERVAÇÕES
-    \noindent \textbf{Observações:} Alguma observação, se houver. Pode ser o referencial usado pra fazer a lista, por exemplo: \cite{GREINER:2004,SALINAS:2001}, ou ainda um breve resumo.
+    
 % -----------------------------
 % inserir o sumario
 % -----------------------------------------------%
