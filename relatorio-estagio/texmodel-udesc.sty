@@ -1,4 +1,4 @@
-/% !TEX root = monografia.tex
+% !TEX root = monografia.tex
 \ProvidesPackage{texmodel-udesc}
 
 %-----------------------------------------------%
@@ -23,15 +23,20 @@
 \RequirePackage{lipsum}				  % para geração de dummy text
 \RequirePackage{array,booktabs,bookmark,multirow}
 \RequirePackage{ragged2e}
-
-% adicionando pacotes a partir daqui
+% -------------------------------------
+% Declarar novos pacotes a partir daqui
+% -------------------------------------
 \RequirePackage{pdfpages}
-\RequirePackage{setspace}
 \RequirePackage{setspace}
 \RequirePackage{lettrine}
 \RequirePackage{GoudyIn}
 \RequirePackage{wrapfig}
 %\RequirePackage{fancyhdr}
+\RequirePackage{amsthm}
+%\RequirePackage{hyperref}
+\RequirePackage{manyfoot}
+  \DeclareNewFootnote{A}[fnsymbol]
+  \DeclareNewFootnote{B}[arabic]
 % para resolver o problema dos apostrofos e crases no listings
 \RequirePackage{upquote,listings}
 % Para formatar unidades físicas para o padrão usado no Brasil
@@ -434,3 +439,16 @@
 \newtheorem{corollary}{Corolário}[theorem]
 \newtheorem{lemma}[theorem]{Lema}
 % ---------------------------------
+% ---------------------------
+% Alguns comandos Matemáticos
+% ---------------------------
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\newcommand{\parder}[2]{\frac{\partial {#1}}{\partial {#2}}}
+% ---------------------------
+% -------------------------
+% Datas no formato dd/mm/yyyy
+% -------------------------
+\def\mydate{\leavevmode\hbox{\twodigits\day/\twodigits\month/\the\year}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+% -------------------------
