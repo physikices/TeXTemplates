@@ -1,0 +1,60 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usetheme{Madrid}
+\useoutertheme{miniframes} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+
+% \usecolortheme{std}
+\usecolortheme{dracula}
+\usefonttheme[onlymath]{serif}
+
+\title[Title Without Rambling]{My Rambling Presentation Title}
+\date{\today}
+\author[R.A.]
+{Rambling Academic}
+\institute[RamblingAcademic.com]{RamblingAcademic.com\\Nuts and Bolts of Research. Plus Some Rambling.}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+\section{Rambling Section}
+
+\subsection{First Subsection}
+
+\begin{frame}
+  Here is some rambling text
+  \begin{enumerate}
+	 \item List item 1
+	 \item List item 2
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Basic Blocks}
+
+    \begin{block}{Standard Block}
+        This is a standard block.
+    \end{block}
+
+    \begin{alertblock}{Alert Message}
+        This block presents alert message.
+    \end{alertblock}
+
+    \begin{exampleblock}{An example of typesetting tool}
+        Example: MS Word, \LaTeX{}
+		  \begin{equation}
+		  	x^{2}=2
+		  	\label{eq:1}
+		  \end{equation}
+    \end{exampleblock}
+
+\end{frame}
+
+\end{document}
