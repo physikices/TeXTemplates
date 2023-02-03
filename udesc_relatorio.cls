@@ -84,7 +84,7 @@
 % Pacotes de citações
 \RequirePackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \RequirePackage[
-	num,
+	alf,
 	%overcite,
 	versalete,
 	abnt-emphasize = bf,
