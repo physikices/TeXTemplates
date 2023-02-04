@@ -1,0 +1,424 @@
+% ============| INÍCIO |===================
+%--------------| Q01 |--------------------
+\addcontentsline{toc}{section}{Problema 01}
+\begin{prob}
+  Para o ensemble das pressões, obtenha \cite[p.~161]{SALINAS:2001}:
+  \begin{enumerate}[label=\alph *)]
+    \item Os valores médios do volume e da energia;
+    \item O desvio quadrático médio e o desvio relativo do volume. Em particular, mostre que o desvio quadrático médio é positivo e que o desvio relativo tende a zero para $V$ grande.
+  \end{enumerate}
+  \begin{sol}
+    Assumindo que a função de partição do ensemble das pressões é dada por
+    \begin{align}
+      \label{eq:part-ens-pressoes}
+      Y&=\sum_j\E^{-\beta E_j}\E^{-\beta pV_j}
+    \end{align}
+    \begin{enumerate}[label=\alph *)]
+      \item Dado que:
+      \begin{align}
+        \label{eq:p1-a1}
+       \langle V_j\rangle &=\frac{1}{Y}\sum_jV_j\E^{-\beta E_j}\E^{-\beta pV_j}
+      \end{align}
+      note que
+      \begin{align}
+        \label{eq:artificio-1a}
+        V_j\E^{-\beta E_j}\E^{-\beta pV_r}&=-\frac{1}{\beta}\left(\parder{}{p}\E^{-\beta pV_j}\right)\E^{-\beta E_j}
+      \end{align}
+      de modo que a \eqref{eq:p1-a1} pode ser reescrita como
+      \begin{align}
+        \langle V_j \rangle&=\frac{1}{Y}\sum_J\left[-\frac{1}{\beta}\left(\parder{}{p}\E^{-\beta pV_j}\right)\E^{-\beta E_j}\right]\\
+        \langle V_j \rangle&=-\frac{1}{Y}\frac{1}{\beta}\parder{}{p}\sum_j\E^{-\beta E_j}\E^{-\beta pV_r}
+      \end{align}
+      Ora, de \eqref{eq:part-ens-pressoes} tiramos que
+      \begin{align}
+        \begin{split}
+          \langle V_j \rangle&=-\frac{1}{\beta}\frac{1}{Y}\parder{Y}{p}
+        \end{split}
+      \end{align}
+      ou seja
+      \begin{align}
+        \label{eq:valor-medio-volume}
+        \addtolength{\fboxsep}{5pt}
+        \boxed{
+          \begin{gathered}
+            \langle V_j \rangle=-\frac{1}{\beta}\parder{}{p}\ln Y
+          \end{gathered}
+        }
+      \end{align}
+      Analogamente para o valor esperado da energia
+
+      \begin{align}
+        \begin{split}
+          \langle E_j \rangle&=\frac{1}{Y}\sum_jE_j\E^{-\beta E_j}\E^{-\beta pV_j}\\
+          \langle E_j \rangle&=\frac{1}{Y}\sum_j\left(-\parder{}{\beta}\E^{-\beta E_j}\right)\E^{-\beta pV_j}+\frac{1}{Y}\sum_j\left(-pV_j\E^{-\beta pV_j}\right)\E^{-\beta E_j}\\
+          \langle E_j \rangle&=-\frac{1}{Y}\parder{}{\beta}\sum_j\E^{-\beta E_j}\E^{-\beta pV_j}-p\color{deepblue}{\underbrace{
+            \color{black}{\left[\frac{1}{Y}\sum_jV_j\E^{-\beta pV_j}\E^{-\beta E_j}\right]}
+          }_{-\displaystyle\frac{1}{\beta}\parder{}{p}\ln Y}}\\
+          \langle E_j \rangle&=-\frac{1}{Y}\parder{}{\beta}Y+\frac{p}{\beta}\parder{}{p}\ln Y
+        \end{split}
+      \end{align}
+      portanto
+      \begin{align}
+        \addtolength{\fboxsep}{5pt}
+        \boxed{
+          \begin{gathered}
+            \langle E_j \rangle=-\parder{}{\beta}\ln Y+\frac{p}{\beta}\parder{}{p}\ln Y
+          \end{gathered}
+        }
+      \end{align}
+      \item Do Capítulo-I \cite{SALINAS:2001}, já vimos que:
+      \begin{align}
+        \langle \left(\Delta V_j\right)^2\rangle=\langle \left(V_j-\langle V_j \rangle\right)^2 \rangle=\langle V_j^2 \rangle-\langle V_j \rangle^2       
+      \end{align}
+      Calculando separadamente:
+      \begin{align}
+        \begin{split}
+          \langle V_j^2\rangle&=\frac{1}{Y}\sum_jV_j^2\E^{-\beta E_j}\E^{-\beta pV_j}\\
+          \langle V_j^2\rangle&=\frac{1}{Y}\sum_jV_j
+          \color{mauve}{%
+            \underbrace{%
+              \color{black}{%
+                V_j\E^{-\beta E_j}\E^{-\beta pV_j}
+              }
+            }_{\displaystyle-\frac{1}{\beta}\left(\parder{}{p}\E^{-\beta pV_j}\right)\E^{-\beta E_j}}
+          }\\
+          \langle V_j^2\rangle&=\frac{1}{Y}\sum_jV_j\left[-\frac{1}{\beta}\left(\parder{}{p}\E^{-\beta pV_j}\right)\E^{-\beta E_j}\right]\\
+          \langle V_j^2\rangle&=\frac{1}{Y}\left(-\frac{1}{\beta}\right)\parder{}{p}\sum_j
+          \color{mauve}{%
+          \underbrace{%
+            \color{black}{%
+              V_j\E^{-\beta E_j}\E^{-\beta pV_j}
+            }
+          }_{\displaystyle-\frac{1}{\beta}\left(\parder{}{p}\E^{-\beta pV_j}\right)\E^{-\beta E_j}}
+        }\\
+          \langle V_j^2\rangle&=\frac{1}{Y}\left(-\frac{1}{\beta}\right)\parder{}{p}\sum_j\left[-\frac{1}{\beta}\left(\parder{}{p}\E^{-\beta pV_j}\right)\E^{-\beta E_j}\right]\\
+          \langle V_j^2\rangle&=\frac{1}{Y}\left(-\frac{1}{\beta}\right)\parder{}{p}\left(-\frac{1}{\beta}\right)\parder{}{p}
+          \color{dkgreen}{%
+          \underbrace{%
+            \color{black}{%
+              \sum_j\E^{-\beta pV_j}\E^{-\beta E_j}
+            }
+          }_{\displaystyle Y}
+        }\\  
+        \langle V_j^2\rangle&=\frac{1}{Y}\frac{1}{\beta^2}\parder{^2Y}{p^2}
+        \end{split}
+      \end{align}
+      tem-se ainda que
+      \begin{align}
+        \begin{split}
+          \langle V_j\rangle^2&=\left[-\frac{1}{\beta}\parder{}{p}\ln Y\right]^2\\
+          \langle V_j\rangle^2&=\frac{1}{\beta^2}\left(\parder{}{p}\ln Y\right)\left(\parder{}{p}\ln Y\right)\\
+          \langle V_j\rangle^2&=\frac{1}{\beta^2}\left(\frac{1}{Y}\parder{Y}{p}\right)\left(\frac{1}{Y}\parder{Y}{p}\right)\\
+          \langle V_j\rangle^2&=\frac{1}{\beta^2}\frac{1}{Y^2}\left(\parder{Y}{p}\right)^2
+        \end{split}
+      \end{align}
+      reagrupando os termos
+      \begin{align}
+        \begin{split}
+          \langle V_j^2 \rangle-\langle V_j \rangle^2&=\frac{1}{Y}\frac{1}{\beta^2}\parder{^2Y}{p^2}-\frac{1}{\beta^2}\frac{1}{Y^2}\left(\parder{Y}{p}\right)^2\\
+          \langle V_j^2 \rangle-\langle V_j \rangle^2&=\frac{1}{\beta^2}\left[\frac{1}{Y}\parder{}{p}\left(\parder{Y}{p}\right)+\parder{Y}{p}\parder{}{p}\left(\frac{1}{Y}\right)\parder{Y}{p}\right]\\
+          \langle \left(\Delta V_j\right)^2\rangle=\langle V_j^2 \rangle-\langle V_j \rangle^2&=\frac{1}{\beta^2}\parder{}{p}\left[\frac{1}{Y}\parder{Y}{p}\right]      
+        \end{split}
+      \end{align}
+      \begin{align}
+        \addtolength{\fboxsep}{5pt}
+        \boxed{
+          \begin{gathered}
+            \langle \left(\Delta V_j\right)^2\rangle=\frac{1}{\beta^2}\parder{}{p}\left[\parder{}{p}\ln Y\right]
+          \end{gathered}
+        }
+      \end{align}
+      É possível demostrar que $\langle \left(\Delta V_j\right)^2\rangle\geq 0$. Para tanto:
+      \begin{proof}
+        Assumindo a conexão do ensemble das pressões com a termodinâmica, dada através da correspondência entre a função de partição e a energia livre de Gibbs $Y\to\exp\left(-\beta G\right)$, o que de fato resulta em
+        \begin{align}
+          \parder{}{p}\ln Y\to -\beta\parder{G}{p}
+        \end{align}
+        da relação de Gibbs-Duhem $dG=-SdT+Vdp+\mu dN$, segue que
+        \begin{align}
+          \left(\parder{G}{p}\right)_{T,N}=V
+        \end{align}
+        sendo assim, no limite termodinâmico
+        \begin{align}
+          \begin{split}
+            \langle \left(\Delta V_j\right)^2\rangle&=\frac{1}{\beta^2}\parder{}{p}\left(-\beta V\right)\\
+            \langle \left(\Delta V_j\right)^2\rangle&=-\frac{1}{\beta}\parder{V}{p}
+          \end{split}
+        \end{align}
+        ora, por definição a taxa de variação relativa do volume com a pressão, fixada a temperatura é a compressibilidade isotérmica $k_T$, dada por
+        \begin{align}
+          k_T&\equiv -\frac{1}{V}\left(\parder{V}{p}\right)_{T,N}
+        \end{align}
+        e portanto,
+        \begin{align}
+          \addtolength{\fboxsep}{5pt}
+          \boxed{
+            \begin{gathered}
+              \langle \left(\Delta V_j\right)^2\rangle=\frac{1}{\beta}Vk_T\geq 0
+            \end{gathered}
+          }
+        \end{align}
+      \end{proof}
+
+      Dada as considerações acima, o desvio relativo do volume é dado por
+      \begin{align}
+       \frac{\sqrt{\langle \left(\Delta V_j\right)^2\rangle}}{\langle V_j\rangle}&=\frac{\sqrt{\left(k_Bk_TT\right)V_j}}{V_j}=\left(k_Bk_TT\right)^{1/2}\frac{1}{\sqrt{V_j}}  
+      \end{align}
+      no limite em que $V_j$ é muito grande o desvio relativo se anula, isto é
+      \begin{align}
+        \addtolength{\fboxsep}{5pt}
+        \boxed{
+          \begin{gathered}
+            \lim_{V_j\to\infty}\left(k_Bk_TT\right)^{1/2}\frac{1}{\sqrt{V_j}}\implies\frac{\sqrt{\langle \left(\Delta V_j\right)^2\rangle}}{\langle V_j\rangle}\to 0
+          \end{gathered}
+        }
+      \end{align}
+    \end{enumerate}
+  \end{sol}
+\end{prob}
+
+%--------------| Q02 |--------------------
+\addcontentsline{toc}{section}{Problema 02}
+\begin{prob}
+  Para o ensemble grande canônico
+  \begin{enumerate}[label=\alph *)]
+    \item Derive a função de partição.
+    \item Obtenha a conexão termodinâmica.
+  \end{enumerate}
+  \begin{sol}
+    No ensemble grande canônico, o sistema $S$ é posto em contato com um ambiente de temperatura e número de partículas fixos, de forma que $S$ pode trocar energia e partículas com este ambiente, mantendo sempre o volume fixo. Os microestados acessíveis ao sistema com esta restrição, será denotado por $j$, de maneira que os valores médios de energia $U$ e número de partículas $N$ é simplesmente a probabilidade $P_{j}$ de ocorrência destes estados
+    \begin{align}
+      N&=\sum_{j}N_jP_{j},\\
+      U&=\sum_{j}E_{j}P_{j}
+    \end{align}
+    Na representação do grande potencial termodinâmico $\Phi =U-TS-\mu N$, com a entropia na forma dada por Shannon $S=-k_B\sum_jP_j\ln P_{j}$, a interpretação microscópica do grande potencial termodinâmico, será a soma sobre todos os microestados do grande ensemble canônico
+    \begin{align}
+      \Phi&=\sum_j\left(E_j+k_BT\ln P_j-\mu N_j\right)P_j
+    \end{align}
+    É necessário encontrar qual a distribuição de probabilidades que minimiza o grande pontencial termodinâmico. Constuíndo uma função de lagrange para $\Phi$ e impondo a condição de que $P_j$ seja normalizável
+    \begin{dmath*}
+      \mathcal{L}=\Phi+\lambda\left[\sum_jP_j-1\right]\condition{desde que $\displaystyle\parder{\mathcal{L}}{\lambda}=0$}
+    \end{dmath*}
+    e
+    \begin{align}
+      \parder{\mathcal{L}}{P_j}&=E_j+k_BT\left(1+\ln P_j\right)-\mu N_j+\lambda=0
+    \end{align}
+    Resolvendo pra $P_j$
+    \begin{align}
+      \begin{split}
+        \ln P_j&=-1-\lambda\beta-\beta\left(E_j-\mu N_j\right)\\
+        P_j&=\E^{-1-\lambda\beta}\exp\left[-\beta\left(E_j-\mu N_j\right)\right]
+      \end{split}
+    \end{align}
+    Da condição de normalização imposta decorre diretamente que
+    \begin{align}
+      \sum_JP_j=1\Longrightarrow \E^{-1-\lambda\beta}=\frac{1}{\displaystyle\sum_j\exp\left[-\beta\left(E_j-\mu N_j\right)\right]}
+    \end{align}
+    escolhendo a constante de normalização convenientemente como sendo $1/\Xi$ obtemos
+    \begin{align}
+      P_j&=\frac{1}{\Xi}\exp\left[-\beta\left(E_j-\mu N_j\right)\right]
+    \end{align}
+    onde a função de partição do ensemble grande canônico é dada por
+    \begin{align}
+      \label{eq:fparticao-gde-canonico}
+      \addtolength{\fboxsep}{5pt}
+      \boxed{
+        \begin{gathered}
+          \Xi=\sum_j\exp\left[-\beta\left(E_j-\mu N_j\right)\right]
+        \end{gathered}
+      }      
+    \end{align}
+    Para fazer a conexão com a termodinâmica, vamos reescrever a \eqref{eq:fparticao-gde-canonico} fatorizando o termo relacionado ao número de partículas
+    \begin{align}
+      \Xi&=\sum_N\E^{\beta \mu N}\sum_{j_n}\E^{-\beta E_{j_n}}
+    \end{align}
+    mas
+    \begin{align}
+      \sum_{j_n}\E^{-\beta E_{j_n}}&=Z_j
+    \end{align}
+    em que $Z_j$ é a função de partição canônica de maneira que
+    \begin{align}
+      \Xi&=\sum_N\E^{\beta \mu N}Z_N
+    \end{align}
+    Introduzindo o termo $Z_N$ na exponêncial e substituindo o somatório pelo seu termo máximo, encontramos
+    \begin{align}
+      \begin{split}
+        \Xi&=\sum_N\exp\left[\beta \mu N+\ln Z_N\right]\sim \exp\left[-\beta\min_N \left(-k_BT\ln Z-\mu N\right)\right]
+      \end{split}
+    \end{align}
+    identificamos a energia livre de Helmholtz $F=-k_BT\ln Z$ e notando que
+    \begin{align}
+      \begin{split}
+        F-\mu N&=U-TS-\mu N\\
+        F-\mu N&=\Phi
+      \end{split}
+    \end{align}
+    isto é
+    \begin{align}
+      \Xi\longrightarrow \E^{-\beta\Phi}
+    \end{align}
+  \end{sol}
+  e para um fluído puro
+  \begin{align}
+    \Phi=\Phi(T,V,\mu)\to -\frac{1}{\beta}\ln\Xi(T,V,\mu)
+  \end{align}
+  a conexão com a termodinâmica se da por
+  \begin{align}
+    \addtolength{\fboxsep}{5pt}
+    \boxed{
+      \begin{gathered}
+        \phi(T,\mu)=-\frac{1}{\beta}\lim_{V\to\infty}\frac{1}{V}\ln\Xi(T,V,\mu)
+      \end{gathered}
+    }
+  \end{align}
+\end{prob}
+%--------------| Q03 |--------------------
+\addcontentsline{toc}{section}{Problema 03}
+\begin{prob}
+  Considere um gás clássico ultrarrelativistico, definido pelo hamiltoniano
+  \begin{align}
+    \mathcal{H}&=\sum_{i=1}^Nc|\vec{p}_i|
+  \end{align}
+  onde a constante $c$ é positiva, dentro de uma região de volume $V$, em contato com um reservatório de calor e de partículas (que define a temperatura $T$ e o potencial químico $\mu$). Calcule:
+  \begin{enumerate}[label=\alph *)]
+    \item A grande função de partição e o grande potencial termodinâmico associados a esse sistema.
+    \item A energia livre de Helmholtz, via transformada de Legendre do grande potencial termodinâmico. 
+  \end{enumerate}
+  \begin{sol}
+    A grande função de partição do problema, é dada por
+    \begin{dmath}
+      \Xi=\sum_N\E^{\beta \mu N}Z_N\condition{em que: $Z_N=\displaystyle\frac{V^N}{N!}\left(\frac{2\sqrt[3]{\pi}}{hc\beta}\right)^{3N}$}
+    \end{dmath}
+    \begin{enumerate}[label=\alph *)]
+      \item Portanto tem-se que
+      \begin{align}
+        \Xi&=\sum_N\E^{\beta \mu N}\frac{V^N}{N!}\left(\frac{2\sqrt[3]{\pi}}{hc\beta}\right)^{3N}       
+      \end{align}
+      rearranjando os termos
+      \begin{align}
+        \begin{split}
+          \Xi&=\sum_N\left[\frac{8\pi\E^{\beta \mu}V}{\left(hc\beta\right)^3}\right]^{N}\frac{1}{N!}
+        \end{split}
+      \end{align}
+      note que se fizermos
+      \begin{align}
+        x&=\frac{8\pi\E^{\beta \mu}V}{\left(hc\beta\right)^3}
+      \end{align}
+      então
+      \begin{align}
+        \sum_N\frac{x^N}{N!}=\E^x
+      \end{align}
+    \end{enumerate}
+    ou seja
+    \begin{align}
+      \addtolength{\fboxsep}{5pt}
+      \boxed{
+        \begin{gathered}
+          \Xi=\exp\left[\frac{8\pi\E^{\beta \mu}V}{\left(hc\beta\right)^3}\right]
+        \end{gathered}
+      }
+    \end{align}
+    O grande potencial termodinâmico fica
+    \begin{align}
+      \begin{split}
+        \Phi&=-\frac{1}{\beta}\ln\Xi\\
+        \Phi&=-\frac{1}{\beta}\ln\Biggr\{\exp\left[\frac{8\pi\E^{\beta \mu}V}{\left(hc\beta\right)^3}\right]\Biggl\}
+      \end{split}
+    \end{align}
+    isto é
+    \begin{align}
+      \addtolength{\fboxsep}{5pt}
+      \boxed{
+        \begin{gathered}
+          \Phi=-\frac{1}{\beta}\left[\frac{8\pi\E^{\beta \mu}V}{\left(hc\beta\right)^3}\right]
+        \end{gathered}
+      }
+    \end{align}
+  \end{sol}
+\end{prob}
+%--------------| Q04 |--------------------
+\addcontentsline{toc}{section}{Problema 04}
+\begin{prob}
+  Partindo da função de partição
+  \begin{align}
+    \Xi(T,V\mu)=\prod_i\Biggr\{\sum_n\exp{\left[-\beta\left(\epsilon_j -\mu\right)n\right]}\Biggl\}
+  \end{align}
+  e usando
+  \begin{align}
+    \langle n_j\rangle&=-\frac{1}{\beta}\parder{}{\epsilon_j}\ln\Xi
+  \end{align}
+  obtenha o valor médio do número de ocupação para a estatística de Bose-Einstein e para a estatística de Fermi-Dirac
+  \begin{sol}
+    Iniciamos calculando $\ln\Xi$
+    \begin{align}
+      \begin{split}
+        \ln\Xi&=\ln\prod_i\Biggr\{\sum_n\exp{\left[-\beta\left(\epsilon_j -\mu\right)n\right]}\Biggl\}\\
+        \ln\Xi&=\sum_{j}\ln\sum_n\exp{\left[-\beta\left(\epsilon_j -\mu\right)n\right]}
+      \end{split}
+    \end{align}
+    O número de bósons ocupando um único estado de partícula, por assumir qualquer número inteiro, o que implica que o somatório em $n$ varia de $0$ a $\infty$ (O que conduz à estatística de Bose-Einstein)
+    \begin{align}
+      \begin{split}
+        \ln\Xi&=\sum_{j}\ln\sum_{n=0}^\infty\exp{\left[-\beta\left(\epsilon_j -\mu\right)n\right]}    
+      \end{split}
+    \end{align}
+    é fácil de ver que a convergência da série geométrica é dada por
+    \begin{dmath}
+      \sum_{n=0}^\infty r^n=\frac{1}{1-r}\condition{desde que $|r|<1$}
+    \end{dmath}
+    portanto, a condição \emph{sine qua non} de existência do somatório analisado, é tal que $\mu<0$, sempre, e assim
+    \begin{align}
+      \sum_{n=0}^\infty\exp{\left[-\beta\left(\epsilon_j -\mu\right)n\right]}&=\frac{1}{1-\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}}
+    \end{align}
+    o que resulta em
+    \begin{align}
+      \ln\Xi&=\sum_{j}\ln\left[\frac{1}{1-\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}}\right]
+    \end{align}
+    Dado que o número médio $\langle N\rangle$ do total de partículas é
+    \begin{align}
+      \begin{split}
+        \langle N\rangle&=\frac{1}{\beta}\parder{}{\mu}\ln\Xi\\
+        \langle N\rangle&=-\frac{1}{\beta}\parder{}{\mu}\sum_j\ln\left\{1-\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}\right\}\\
+        \langle N\rangle&=-\frac{1}{\beta}\sum_j\Biggr\{\frac{1}{1-\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}}\left(-\beta\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}\right)\Biggl\}\\
+        \langle N\rangle&=\sum_j\frac{\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}}{1-\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}}
+      \end{split}
+    \end{align}
+    uma vez que $\langle N\rangle=\sum_j\langle n_j\rangle$
+    \begin{align}
+      \addtolength{\fboxsep}{5pt}
+      \boxed{
+        \begin{gathered}
+          \langle n_j\rangle=\frac{1}{\exp{\left[\beta\left(\epsilon_j -\mu\right)\right]}-1}
+        \end{gathered}
+      }
+    \end{align}
+    A estatística de Fermi-Dirac surge ao considerarmos o efeito do princípio de exclusão de Pauli, ou seja, o número de férmions ocupando um mesmo estado pode assumir somente valores 0 ou 1, e portanto
+    \begin{align}
+      \begin{split}
+        \ln\Xi&=\sum_j\ln\sum_{n=0,1}\exp\left[-\beta\left(\epsilon_j-\mu\right)n\right]\\
+        \ln\Xi&=\sum_j\ln\biggr\{1+\exp\left[-\beta\left(\epsilon_j-\mu\right)\right]\biggl\}\\
+        \frac{1}{\beta}\parder{}{\mu}\ln\Xi&=\frac{1}{\beta}\parder{}{\mu}\sum_j\ln\biggr\{1+\exp\left[-\beta\left(\epsilon_j-\mu\right)\right]\biggl\}\\
+        \langle N\rangle&=\frac{1}{\beta}\sum_j\Biggr\{\frac{1}{1+\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}}\left(\beta\exp{\left[-\beta\left(\epsilon_j -\mu\right)\right]}\right)\Biggl\}
+      \end{split}
+    \end{align}
+    e da mesma forma que anteriormente
+    \begin{align}
+      \addtolength{\fboxsep}{5pt}
+      \boxed{
+        \begin{gathered}
+          \langle n_j\rangle=\frac{1}{\exp{\left[\beta\left(\epsilon_j -\mu\right)\right]}+1}
+        \end{gathered}
+      }
+    \end{align}
+  \end{sol}
+\end{prob}
+%--------------| Q05 |--------------------
+\addcontentsline{toc}{section}{Problema 05}
+\begin{prob}
+  Partindo do grande potencial termodinâmico clássico
+  \begin{align}
+    \Phi_{cl}=-\gamma V\left(\frac{2m\pi}{h^2}\right)^{3/2}\left(k_BT\right)\exp\left[\frac{\mu}{k_BT}\right]
+  \end{align}
+  obtenha a energia livre de Helmholtz e a entropia de Sackur – Tetrode do último slide desta aula
+\end{prob}
+% ============| FIM |======================

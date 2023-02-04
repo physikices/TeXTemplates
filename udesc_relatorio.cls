@@ -95,7 +95,7 @@
 	abnt-repeated-author-omit = yes,
 	bibjustif
 	]{abntex2cite}	% Citações padrão ABNT
-\citebrackets[]
+% \citebrackets[]
 
 %-----------------------------------------------%
 % Espaçamentos entre linhas e parágrafos 

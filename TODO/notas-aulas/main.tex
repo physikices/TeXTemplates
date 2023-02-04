@@ -1,0 +1,70 @@
+%-----------------------------------------------%
+% Modelo de Lista de Exercícios
+%
+% Autor: Rodrigo Nascimento (2022-08-12)
+%-----------------------------------------------%
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% twoside para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+%	french,				% idioma adicional para hifenização
+%	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+]{abntex2}
+\selectlanguage{brazil}
+%-----------------------------------------------%
+% Informações do DOCUMENTO
+%-----------------------------------------------%
+\input{data/OMEE001.tex}
+%-----------------------------------------------%
+
+% Todas as indicações de pacotes e configurações estão no arquivo de estilo
+% chamado texmodel-udesc.sty.
+\usepackage{texmodel-udesc}
+
+%--------------------%
+% Início do documento
+%--------------------%
+\begin{document}
+% ---------------------------
+% Insere o CABEÇALHO (HEADER)
+% ---------------------------
+    \input{header.tex}  
+	\input{data/subheader.tex}  
+% ---------------------------
+    
+% -----------------------------
+% inserir o sumario
+% -----------------------------------------------%
+    \pdfbookmark[0]{\contentsname}{toc}
+    \tableofcontents*
+    \cleardoublepage
+% -----------------------------------------------%
+
+
+% ---------------
+% INÍCIO DA LISTA
+% ---------------
+    \textual
+    %\pagestyle{cabecalholimpo}
+	\pagestyle{listaex}
+% ---------------
+% arquivos
+    \include{data/lista-01-omee.tex}
+
+% ---------------------
+% Insere a BIBLIOGRAFIA
+% ---------------------    
+    \bibliography{data/referencias-OMEE001.bib}
+% ---------------------
+\end{document}
