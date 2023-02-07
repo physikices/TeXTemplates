@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{udesc_relatorio}[2023/02/03 UDESC Relatorio Class TeX]
+\ProvidesClass{udesc_report}[2023/02/03 UDESC Report Class]
 
 \LoadClass[
   12pt,
