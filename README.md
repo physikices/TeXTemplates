@@ -9,8 +9,5 @@ Tecnologia utilizada: **abnTeX2** Modelo de Trabalho Academico em conformidade c
 ### Modelos
 - Relatório de Estágio (*Licenciaturas*);
 - Plano de Aula;
-- Listas de Exercícios.
-
-> Baseado no estilo criado para o IFSC por [Emerson Mello](https://github.com/emersonmello/modelos-latex/tree/master/monografia)
-
-> Adaptado por Rodrigo Nascimento.
+- Listas de Exercícios;
+- Beamer.

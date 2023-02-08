@@ -1,0 +1,95 @@
+%--------------| Q01 |--------------------
+\addcontentsline{toc}{section}{Problema 01}
+\begin{prob}
+  Para o ensemble grande canônico
+  \begin{enumerate}[label=\alph *)]
+    \item Derive a função de partição.
+    \item Obtenha a conexão com termodinâmica.
+  \end{enumerate}
+  \begin{sol}
+    No ensemble grande canônico, o sistema $S$ é posto em contato com um ambiente de temperatura e número de partículas fixos, de forma que $S$ pode trocar energia e partículas com este ambiente, mantendo sempre o volume fixo. Os microestados acessíveis ao sistema com esta restrição, será denotado por $j$, de maneira que os valores médios de energia $U$ e número de partículas $N$ é simplesmente a probabilidade $P_{j}$ de ocorrência destes estados
+    \begin{align}
+      N&=\sum_{j}N_jP_{j},\\
+      U&=\sum_{j}E_{j}P_{j}
+    \end{align}
+    Na representação do grande potencial termodinâmico $\Phi =U-TS-\mu N$, com a entropia na forma dada por Shannon $S=-k_B\sum_jP_j\ln P_{j}$, a interpretação microscópica do grande potencial termodinâmico, será a soma sobre todos os microestados do grande ensemble canônico
+    \begin{align}
+      \Phi&=\sum_j\left(E_j+k_BT\ln P_j-\mu N_j\right)P_j
+    \end{align}
+    É necessário encontrar qual a distribuição de probabilidades que minimiza o grande pontencial termodinâmico. Constuíndo uma função de lagrange para $\Phi$ e impondo a condição de que $P_j$ seja normalizável
+    \begin{dmath*}
+      \mathcal{L}=\Phi+\lambda\left[\sum_jP_j-1\right]\condition{desde que $\displaystyle\parder{\mathcal{L}}{\lambda}=0$}
+    \end{dmath*}
+    e
+    \begin{align}
+      \parder{\mathcal{L}}{P_j}&=E_j+k_BT\left(1+\ln P_j\right)-\mu N_j+\lambda=0
+    \end{align}
+    Resolvendo pra $P_j$
+    \begin{align}
+      \begin{split}
+        \ln P_j&=-1-\lambda\beta-\beta\left(E_j-\mu N_j\right)\\
+        P_j&=\E^{-1-\lambda\beta}\exp\left[-\beta\left(E_j-\mu N_j\right)\right]
+      \end{split}
+    \end{align}
+    Da condição de normalização imposta decorre diretamente que
+    \begin{align}
+      \sum_JP_j=1\Longrightarrow \E^{-1-\lambda\beta}=\frac{1}{\displaystyle\sum_j\exp\left[-\beta\left(E_j-\mu N_j\right)\right]}
+    \end{align}
+    escolhendo a constante de normalização convenientemente como sendo $1/\Xi$ obtemos
+    \begin{align}
+      P_j&=\frac{1}{\Xi}\exp\left[-\beta\left(E_j-\mu N_j\right)\right]
+    \end{align}
+    onde a função de partição do ensemble grande canônico é dada por
+    \begin{align}
+      \label{eq:fparticao-gde-canonico}
+      \addtolength{\fboxsep}{5pt}
+      \boxed{
+        \begin{gathered}
+          \Xi=\sum_j\exp\left[-\beta\left(E_j-\mu N_j\right)\right]
+        \end{gathered}
+      }      
+    \end{align}
+    Para fazer a conexão com a termodinâmica, vamos reescrever a \eqref{eq:fparticao-gde-canonico} fatorizando o termo relacionado ao número de partículas
+    \begin{align}
+      \Xi&=\sum_N\E^{\beta \mu N}\sum_{j_n}\E^{-\beta E_{j_n}}
+    \end{align}
+    mas
+    \begin{align}
+      \sum_{j_n}\E^{-\beta E_{j_n}}&=Z_j
+    \end{align}
+    em que $Z_j$ é a função de partição canônica de maneira que
+    \begin{align}
+      \Xi&=\sum_N\E^{\beta \mu N}Z_N
+    \end{align}
+    Introduzindo o termo $Z_N$ na exponêncial e substituindo o somatório pelo seu termo máximo, encontramos
+    \begin{align}
+      \begin{split}
+        \Xi&=\sum_N\exp\left[\beta \mu N+\ln Z_N\right]\sim \exp\left[-\beta\min_N \left(-k_BT\ln Z-\mu N\right)\right]
+      \end{split}
+    \end{align}
+    identificamos a energia livre de Helmholtz $F=-k_BT\ln Z$ e notando que
+    \begin{align}
+      \begin{split}
+        F-\mu N&=U-TS-\mu N\\
+        F-\mu N&=\Phi
+      \end{split}
+    \end{align}
+    isto é
+    \begin{align}
+      \Xi\longrightarrow \E^{-\beta\Phi}
+    \end{align}
+  \end{sol}
+  e para um fluído puro
+  \begin{align}
+    \Phi=\Phi(T,V,\mu)\to -\frac{1}{\beta}\ln\Xi(T,V,\mu)
+  \end{align}
+  a conexão com a termodinâmica se da por
+  \begin{align}
+    \addtolength{\fboxsep}{5pt}
+    \boxed{
+      \begin{gathered}
+        \phi(T,\mu)=-\frac{1}{\beta}\lim_{V\to\infty}\frac{1}{V}\ln\Xi(T,V,\mu)
+      \end{gathered}
+    }
+  \end{align}
+\end{prob}

@@ -1,0 +1,90 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usefonttheme[onlymath]{serif}
+
+\usetheme{Madrid}
+\usepackage{beamercolorthemestd}
+\useoutertheme{miniframes} %Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\pgfdeclareimage[height=0.5cm]{logo}{assets/logo.png}
+\logo{\pgfuseimage{logo}}
+
+\title{título}
+\subtitle{subtítulo}
+\author[disciplina]{autor}
+\date{\today}
+\institute[UDESC]{Universidade do Estado de Santa Catarina\\Centro de Ciências Tecnológicas\\Campus Joinville}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Sumário}
+  \tableofcontents[pausesections]
+\end{frame}
+
+% Presentation structure
+
+\begin{frame}{Exiting results}
+  \section{Existing results}
+  \subsection{Method 1}
+  \subsection{Method 2}
+  \subsection{Method 3}
+  \framesubtitle{Teste}
+  \begin{block}{Open Questions}
+	 Is every even number the sum of two primes?
+	 \cite{Goldbach1742}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Comparative Study}
+  \section{Comparative study}
+  \framesubtitle{Teste}
+  \begin{columns}
+	 \column{.4\textwidth}
+	 \begin{block}{Answered Questions}
+		How many primes are there?
+	 \end{block}
+	 \column{.4\textwidth}
+	 \begin{block}{Open Questions}
+		23
+		Is every even number the sum of two primes?
+	 \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{An Algorithm For Finding Primes Numbers.}
+  \begin{semiverbatim}
+		\uncover<1->{\alert<0>{int main (void)}}
+		\uncover<1->{\alert<0>{\{}}
+		\uncover<1->{\alert<1>{ \alert<4>{std::}vector<bool> is_prime (100, true);}}
+		\uncover<1->{\alert<1>{ for (int i = 2; i < 100; i++)}}
+		\uncover<2->{\alert<2>{ if (is_prime[i])}}
+		\uncover<2->{\alert<0>{ \{}}
+		\uncover<3->{\alert<3>{ \alert<4>{std::}cout << i << " ";}}
+		\uncover<3->{\alert<3>{ for (int j = i; j < 100;}}
+		\uncover<3->{\alert<3>{ is_prime [j] = false, j+=i);}}
+		\uncover<2->{\alert<0>{ \}}}
+		\uncover<1->{\alert<0>{ return 0;}}
+		\uncover<1->{\alert<0>{\}}}
+  \end{semiverbatim}
+  \visible<4->{Note the use of \alert{\texttt{std::}}.}
+\end{frame}
+
+\begin{frame}{Referências}
+  \section{Referencias}
+  \begin{thebibliography}{10}
+	 \bibitem{Goldbach1742}[Goldbach, 1742]
+	 Christian Goldbach.
+	 \newblock A problem we should try to solve before the ISPN ’43 deadline,
+	 \newblock \emph{Letter to Leonhard Euler}, 1742.
+\end{thebibliography}
+\end{frame}
+
+\end{document}
