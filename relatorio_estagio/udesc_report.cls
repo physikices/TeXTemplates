@@ -53,7 +53,6 @@
 %\RequirePackage{fancyhdr}
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
-\RequirePackage{breqn}
 %\RequirePackage{hyperref}
 \RequirePackage{cancel}
 %\RequirePackage{etoolbox}
@@ -532,8 +531,6 @@
 \def\mydate{\leavevmode\hbox{\twodigits\day/\twodigits\month/\the\year}}
 \def\twodigits#1{\ifnum#1<10 0\fi\the#1}
 % -------------------------
-\RequirePackage{breqn}
-
 
 \makeatletter
 \providecommand*{\dif}%
@@ -556,22 +553,6 @@
             \let\DiffSpace\relax
          \fi\fi\fi\DiffSpace}
 \makeatother
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
