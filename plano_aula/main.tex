@@ -1,0 +1,134 @@
+%-----------------------------------------------%
+% Modelo de Plano de Aula com três momentos pedagógicos
+%
+% Autor: Rodrigo Nascimento (2022-08-12)
+%-----------------------------------------------%
+
+\documentclass[
+% -- opções da classe memoir --
+12pt,				% tamanho da fonte
+openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+oneside,			% twoside para impressão em verso e anverso. Oposto a oneside
+a4paper,			% tamanho do papel. 
+% -- opções da classe abntex2 --
+chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+% -- opções do pacote babel --
+english,			% idioma adicional para hifenização
+%	french,				% idioma adicional para hifenização
+%	spanish,			% idioma adicional para hifenização
+brazil				% o último idioma é o principal do documento
+]{abntex2}
+\selectlanguage{brazil}
+%-----------------------------------------------%
+% Informações do DOCUMENTO
+%-----------------------------------------------%
+\input{00-dados.tex}
+%-----------------------------------------------%
+
+%	Todas as indicações de pacotes e configurações estão no arquivo de estilo
+%  chamado texmodel-udesc.sty.
+\usepackage{texmodel-udesc}
+
+%-----------------------------------------------%
+% Estilo de cabeçalho que só contém o número da 
+% página e uma linha
+%-----------------------------------------------%
+\makepagestyle{cabecalholimpo}
+\makeevenhead{cabecalholimpo}{\thepage}{}{} % páginas pares
+\makeoddhead{cabecalholimpo}{}{}{\thepage} % páginas ímpares
+%\makeheadrule{cabecalholimpo}{\textwidth}{\normalrulethickness} % linha
+%-----------------------------------------------%
+
+%-----------------------------------------------%
+% HEADER
+%-----------------------------------------------%
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+	\begin{minipage}[!]{\linewidth}
+		\begin{minipage}[!]{.19\linewidth}
+			\includegraphics[width=\linewidth]{img/logo.png}           
+		\end{minipage}
+		\begin{minipage}[!]{.8\linewidth}
+			\center
+			\ABNTEXchapterfont\normalsize\MakeUppercase{\imprimirinstituicao}
+			\par
+			\vspace*{10pt}                     
+			\ABNTEXchapterfont\normalsize\MakeUppercase{\centro}
+			\par
+			\vspace*{10pt}           
+			\ABNTEXchapterfont\normalsize\MakeUppercase{\disciplina}
+		\end{minipage}        
+	\end{minipage}
+	\\ \vspace{0.5cm}
+	\rule{\textwidth}{.5pt}   
+\end{center}
+%-----------------------------------------------%
+% Ficha de Identificação
+%-----------------------------------------------%
+\textual
+\begin{center}
+	\textbf{Plano de Aula: Intervenção Pedagógica nº 00X}
+\end{center}
+\par\noindent\textbf{Estagiário(a):} \imprimirautor
+\par\noindent\textbf{U.E.:} EEB Giovani Pasqualini Faraco
+\par\noindent\textbf{Série:} Xº Ano\hfill{}\textbf{Turma:} Xº--N
+\par\noindent\textbf{Aula:} 001\hfill{}\textbf{Data:} \mydate\hfill{}\textbf{Duração:} $45\min$
+\rule{\textwidth}{.5pt}
+%-----------------------------------------------%
+% Início do Plano de Aula
+%-----------------------------------------------%
+\bigskip{}  
+\noindent
+\begin{center}
+	\textbf{Título: Título da Aula}
+\end{center}
+\par\noindent\textbf{Resumo da aula: }
+\par\noindent\textbf{Habilidades BNCC: }EM13CNT101; EM13CNT301.
+
+\section{Objetivo de Aprendizagem}
+\begin{itemize}
+	\item Perceber
+\end{itemize}
+
+\medskip{}
+
+\noindent\textbf{Dimensão Conceitual:} \emph{Dimensão 01; Dimensão 02; Dimensão 03.}
+\newpage
+
+\section{Procedimento Didático} 
+\noindent\emph{1º Momento:} Título do primeiro momento.
+\par\noindent\rule{.3\textwidth}{.5pt}  
+\par\noindent\textbf{Tempo previsto:} XX minutos
+
+\noindent\textbf{Dinâmica:} Descrever a dinâmica do primeiro momento.
+
+\vspace{50pt}
+\noindent\emph{2º Momento:} Título do segundo momento.
+\par\noindent\rule{.3\textwidth}{.5pt}    
+\par\noindent\textbf{Tempo previsto: }XX minutos
+
+
+\noindent\textbf{Dinâmica:} Descrever a dinâmica do segundo momento.
+
+\vspace{50pt}
+\noindent\emph{3º Momento:} Título do terceiro momento.
+\par\noindent\rule{.3\textwidth}{.5pt}
+\par\noindent\textbf{Dinâmica:} Descrever a dinâmica do terceiro momento.
+%-----------------------------------------------%
+% Referências
+%-----------------------------------------------%
+% \bibliography{bibliografia.bib}
+%-----------------------------------------------%
+% Anexos
+%-----------------------------------------------%
+% \begin{anexosenv}		    
+% \end{anexosenv}
+%-----------------------------------------------%
+% Fim do Plano de Aula
+%-----------------------------------------------%
+\end{document}

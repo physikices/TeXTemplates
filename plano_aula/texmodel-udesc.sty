@@ -433,4 +433,42 @@
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{corollary}{Corolário}[theorem]
 \newtheorem{lemma}[theorem]{Lema}
-% ---------------------------------
+% ---------------------------
+% Alguns comandos Matemáticos
+% ---------------------------
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\senh}{senh}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\tgh}{tgh}
+\newcommand{\parder}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\E}{\mathrm{e}}
+% ---------------------------
+% -------------------------
+% Datas no formato dd/mm/yyyy
+% -------------------------
+\def\mydate{\leavevmode\hbox{\twodigits\day/\twodigits\month/\the\year}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+% -------------------------
+
+\makeatletter
+\providecommand*{\dif}%
+   {\@ifnextchar^{\DIfF}{\DIfF^{}}}
+\def\DIfF^#1{%
+   \mathop{\mathrm{\mathstrut d}}%
+      \nolimits^{#1}\gobblespace
+}
+\def\gobblespace{%
+   \futurelet\diffarg\opspace}
+\def\opspace{%
+   \let\DiffSpace\!%
+   \ifx\diffarg(%
+      \let\DiffSpace\relax
+   \else
+      \ifx\diffarg\[%
+         \let\DiffSpace\relax
+      \else
+         \ifx\diffarg\{%
+            \let\DiffSpace\relax
+         \fi\fi\fi\DiffSpace}
+\makeatother
+
