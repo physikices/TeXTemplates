@@ -10,4 +10,5 @@ Tecnologia utilizada: **abnTeX2** Modelo de Trabalho Academico em conformidade c
 - Relatório de Estágio (*Licenciaturas*);
 - Plano de Aula;
 - Listas de Exercícios;
-- Beamer.
+- Beamer;
+- Artigo.
