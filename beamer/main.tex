@@ -4,17 +4,15 @@
 \usepackage{style/udesc}
 \usepackage{listings}
 \usepackage{hyperref}
-\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize items}[square]
 \usepackage[abnt-emphasize=bf,abnt-and-type=e,alf]{abntex2cite}%Citações ABNT
 
 % Incluir arquivos da pasta figuras
-\graphicspath{{./figuras/}}
-
+\graphicspath{{./img/}}
 \setbeamertemplate{frametitle continuation}{}
 
 % aPacote de texto aleatório
 \usepackage{lipsum}
-
 \lstset{ 
 	basicstyle=\footnotesize,        % the size of the fonts that are used for the code
 	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
@@ -23,10 +21,10 @@
 	deletekeywords={...},            % if you want to delete keywords from the given language
 	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
 	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-	firstnumber=0,                % start line enumeration with line 1000
+	firstnumber=0,                   % start line enumeration with line 1000
 	frame=single,	                   % adds a frame around the code
 	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-	language=Java,                 % the language of the code
+	language=Java,                   % the language of the code
 	morekeywords={*,...},            % if you want to add more keywords to the set
 	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
 	numbersep=0pt,                   % how far the line-numbers are from the code
@@ -35,146 +33,107 @@
 	showstringspaces=false,          % underline spaces within strings only
 	showtabs=false,                  % show tabs within strings adding particular underscores
 	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
-	tabsize=1,	                   % sets default tabsize to 2 
+	tabsize=1,	                     % sets default tabsize to 2 
 	basicstyle=\fontsize{7}{8}\selectfont\ttstyle,
-	keywordstyle=\color{blue},
-	commentstyle=\fontsize{7}{8}\selectfont\ttstyle\color{gray},
+	keywordstyle=\color{udescred},
+	commentstyle=\fontsize{7}{8}\selectfont\ttstyle\color{gray65udesc},
 	stringstyle=\color{orange},
 }
 
 % Início do documento
 \begin{document}
-
 %%
 %%	Incluir \capa para os slides
 %% 
-\titulo{Distribuições Partônicas}
-\subtitulo{Parametrizações}
-\newcommand{\autor}{Rodrigo Ribamar Silva do Nascimento}
+\titulo{Título da Apresentação}
+\subtitulo{Subtítulo da Apresentação}
+\newcommand{\autor}{Nome do Palestrante}
 \newcommand{\github}{github.com/physikices}
 \newcommand{\email}{rodrigo.nascimento@edu.udesc.br}
 \newcommand{\website}{}
-\frase{2023 - IC Física de Partículas}
-\universidade{Universidade do Estado de Santa Catarina}
+\frase{Seminário -- SIGLA2023}
+\universidade{credenciais}
 \capa
+\logo{
+	\begin{tikzpicture}[overlay, remember picture]
+		\node[left=0.2cm] at (current page.27){
+		\includegraphics[height=.5cm]{style/sic.png}
+	};
+	\end{tikzpicture}
+}
+
 
 \AtBeginSection[]{
 	\begin{frame}<beamer>
-		\frametitle{Seções}
+		\frametitle{Sumário\hrule}
 		\tableofcontents[currentsection]
-\end{frame}}
+  \end{frame}}
 
-\begin{frame}{Problema Principal}
-	\framesubtitle{$n$ de glúons}
-	\begin{block}{Qual a quantidade precisa de glúons no interior do próton?}
-		Is every even number the sum of two primes?
-		\cite{article2016}
-	\end{block}
-\end{frame}
+\section{Seção I}
+\subsection{Frame Blocks}
+\subsection{Subseção I}
+\subsection{Subseção II}
 
-\begin{frame}
-	\frametitle{Sample frame title}
+\section{Seção II}
+\subsection{Subseção I}
+\subsection{Subseção II}
 
-	In this slide, some important text will be
-	\alert{highlighted} because it's important.
-	Please, don't abuse it.
+\section{Seção III}
+\subsection{Subseção I}
+\subsection{Subseção II}
 
-	\begin{block}{Remark}
-		Sample text
-	\end{block}
-
-	\begin{alertblock}{Important theorem}
-		Sample text in red box
-	\end{alertblock}
-
-	\begin{examples}
-		Sample text in green box. The title of the block is ``Examples".
-	\end{examples}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Two-column slide}
+\secframe{Seção I}{Subtítulo de seção}
+\begin{slide}{Seção I}{Frame Blocks}
 	\begin{columns}
 		\column{0.5\textwidth}
-		This is a text in first column asda asd as  da s da s d asdasdasdasd asdas dasd asd.
-		$$\beta(\alpha_s)=\mu^{2}\frac{d\alpha_s}{d\mu^2}$$
-		\begin{itemize}
-			\item First item
-			\item Second item
-		\end{itemize}
+		\begin{block}{Normal Block}
+			\begin{itemize}[<+(1)->]
+					\item item 1
+					\item item 2
+			\end{itemize}
+		\end{block}
+		\begin{exampleblock}{Example Block}
+			\begin{itemize}[<+(1)->]
+				\item  item 1
+				\item  item 2
+			\end{itemize}
+		\end{exampleblock}
+		\begin{alertblock}{Alert Block}
+			\begin{itemize}[<+(1)->]
+				\item  item 1
+				\item  item 2
+			\end{itemize}
+		\end{alertblock}
 
 		\column{0.5\textwidth}
-		\imagem{img/alice.png}{Alice}{img01}
+		\begin{exampleblock}{}
+			\imagem{.8}{bncc_just-01}{Fonte \cite{CATARINA:2021}}
+		\end{exampleblock}
 	\end{columns}
-\end{frame}
+\end{slide}
 
-\begin{frame}{Tikz Picture}
-	\begin{figure}[H]
-		\tikzset{
-			basic/.style  = {draw, text width=5em, drop shadow,  rectangle},
-			root/.style   = {basic, thin, align=center,
-			fill=gray!45 , text width=5em},
-			level 2/.style = {basic, thin,align=center, fill=gray!30,
-			text width=5em},
-			level 3/.style = {basic, thin, align=left, fill=gray!20, text
-			width=5em, node distance = 40pt} 
-		}
-		\begin{tikzpicture}[
-			level 1/.style={sibling distance=30mm},
-			edge from parent/.style={->,draw},
-			>=latex]
+\secframe{Seção II}{Subtítulo de seção}
+\begin{slide}{Seção II}{Equações}
+	\centering
+	\begin{tikzpicture}
+		\node[root]{$R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R=T_{\mu\nu}$};
+	\end{tikzpicture}
 
-			% root of the the initial tree, level 1
-			\node[root] {BRD1 ($\alpha_{..},\beta_{..}$)}
-				% The first level, as children of the initial tree
-				child {node[level 2] (c1) {$(\alpha_{..},\beta_{i.})$}}
-				child {node[level 2] (c2) {$ (\alpha_{.j},\beta_{..})$}}
-				child {node[level 2] (c3) { $(\alpha_{..},\beta_{.j})$}}
-				child {node[level 2] (c4) { $(\alpha_{i.},\beta_{..})$}};
-
-			% The second level, relatively positioned nodes
-			\begin{scope}[every node/.style={level 3}]
-				\node [below of = c1, xshift=10pt] (c11) { $(\alpha_{i.},\beta_{i.})$};
-				\node [below of = c11 ] (c12) {BRD9 $(\alpha_{.j},\beta_{i.})$};
-				%\node [below of = c12] (c13) {$(\alpha_{..},\beta_{i.})$};
-
-				\node [below of = c2, xshift=10pt] (c21) { $(\alpha_{.j},\beta_{.j})$};
-				\node [below of = c21 ] (c22) {BRD9 $(\alpha_{.j},\beta_{i.})$};
-
-				\node [below of = c3, xshift=10pt] (c31) { $(\alpha_{.j},\beta_{.j})$};
-				\node [below of = c31 ] (c32) {BRD8 $(\alpha_{i.},\beta_{.j})$};
-
-				\node [below of = c4, xshift=10pt] (c41) { $(\alpha_{i.},\beta_{i.})$};
-				\node [below of = c41 ] (c42) { $(\alpha_{i.},\beta_{.j})$};
-
-				%\node [below of = c2, yshift=-15pt, xshift=10pt] (c21) {Membership driven Re-Keying};
-				%\node [below of = c21] (c22) {Time driven Re-Keying};
-
-				%\node [below of = c3, xshift=15pt] (c31) {Ring-based Cooperation};
-				%\node [below of = c31] (c32) {Hierarchical Cooperation};
-				%\node [below of = c32] (c33) {Broadcast Cooperation};
-			\end{scope}
-
-			% lines from each level 1 node to every one of its "children"
-			\foreach \value in {1,2}
-			\draw[->] (c1.195) |- (c1\value.west);
-
-			\foreach \value in {1,2}
-			\draw[->] (c2.195) |- (c2\value.west);
-
-			\foreach \value in {1,2}
-			\draw[->] (c3.195) |- (c3\value.west);
-			\foreach \value in {1,2}
-			\draw[->] (c4.195) |- (c4\value.west);
-
-		\end{tikzpicture}\\
-		%\caption{Schematic Presentation of BRD models~\citep{Jansen05} } 
-	\end{figure}
-\end{frame}
-
+	\begin{exampleblock}{}
+		\begin{align*}
+			\begin{split}
+				\vec{\nabla}\cdot\vec{D} &= \rho_{f} \\
+				\vec{\nabla}\cdot\vec{B} &= 0	\\
+				\vec{\nabla}\times \vec{E} &= -\partial_t \vec{B}\\
+				\vec{\nabla}\times \vec{H} &= \vec{J}_{f}+\partial_t \vec{D}
+			\end{split}
+		\end{align*}	
+	\end{exampleblock}
+\end{slide}
 
 \begin{frame}[allowframebreaks]
-	\frametitle{Referencias}
+	\frametitle{Referências\hrule}
+	% \framesubtitle{\hrule}
 	\bibliography{referencias.bib}
 \end{frame}
 
@@ -185,7 +144,6 @@
 	\github{} \\
 	\website{}
 }
-
 \capadetras{}
 
 \end{document}
