@@ -1,5 +1,5 @@
 # udesc-cct-latex
-![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)[![built with Codeium](https://codeium.com/badges/main)](https://codeium.com)
 ## Repositório de trabalhos acadêmicos para a UDESC-CCT em LaTeX
 
 
