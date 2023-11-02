@@ -1,112 +1,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
-\usepackage{lmodern}
 \usepackage[absolute,overlay]{textpos}
 \usefonttheme[onlymath]{serif}
-\usepackage{mathtools}
-% \usepackage{siunitx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{physics}
-% \usepackage{feynman}
-\usepackage{xcolor}
-
-% Imagens
-\usepackage{graphicx}
-\usepackage{svg}
-% Imagens
-\usepackage{graphicx}
-
-% Tikz
-\usepackage{tikz}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{shadows}
-\usetikzlibrary{shadows.blur, trees}
-\tikzset{
-	invisible/.style={opacity=0},
-	visible on/.style={alt={#1{}{invisible}}},
-	alt/.code args={<#1>#2#3}{%
-		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
-		hide on/.code={\only<#1>{\color{white}}}
-	},
-	basic/.style = {
-		sibling distance=4.5cm,
-		draw,
-		rectangle
-	},
-	root/.style = {
-		basic,
-		align=center,
-		fill=greenudesc,
-		draw=none,
-		text=white,
-		blur shadow={
-			shadow blur steps=5,
-			shadow blur extra rounding=0pt,
-			shadow xshift=.5pt
-		},
-		thin,
-	},
-	level 1/.style = {
-		basic,
-		thin,
-		align=center,
-		fill=redudesc,
-		draw=none,
-		text=white,
-		% text width=11em
-	},
-	level 2/.style = {
-		basic,
-		thin,
-		align=center,
-		fill=green!30,
-		text width=7em,
-		text=black
-	},
-	level 3/.style = {
-		basic,
-		rounded corners,
-		thin,
-		align=center,
-		fill=cyan!20,
-		minimum size=5mm
-	},
-	circlenode/.style = {
-		circle,
-		draw=greenudesc,
-		fill=greenudesc!15,
-		ultra thin,
-		minimum size=7mm
-	},
-	squarednode/.style = {
-		rectangle,
-		draw=red!60,
-		fill=red!5,
-		ultra thin,
-		minimum size=5mm
-	},
-	mathnode/.style = {
-		rectangle,
-		draw=cyan!60,
-		fill=cyan!5,
-		ultra thin,
-		minimum size=.1cm
-	}
-}
+\usepackage{lmodern}
+\usepackage{listings}
+% ------------------------------ % 
+% modules
+% -------------------------------%
+\input{modules/colors.tex}
+\input{modules/tikzset.tex}
+\input{modules/blockset.tex}
+\input{modules/commands.tex}
+\input{modules/feynm-diagrams.tex}
+% ------------------------------ %
 
 % Legendas
 \usepackage[font=footnotesize,labelfont=bf]{caption}
 \setbeamertemplate{caption}[numbered]
-
-% Coloridos
-\usepackage{xcolor}
-\definecolor{greenudesc}{RGB}{20,155,85}
-\definecolor{redudesc}{RGB}{240,65,55}
-\definecolor{gray50udesc}{RGB}{158,160,158}
-\definecolor{gray65udesc}{RGB}{125,127,130}
-\definecolor{gray80udesc}{RGB}{96,97,101}
 
 % Remover ícones de navegação
 \setbeamertemplate{navigation symbols}{}
@@ -158,38 +69,13 @@
 	\setbeamercolor{structure}{fg=greenudesc}
 	\setbeamercolor{normal text}{fg=gray80udesc}
 
-	% blocks shadows
-	\setbeamertemplate{blocks}[rounded][shadow=true]
-
-	% block
-	\setbeamercolor{block title}{fg=white,bg=greenudesc}
-	\AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=greenudesc}}
-
-	% alertblock
-	\setbeamercolor{block title alerted}{fg=white,bg=redudesc}
-	\AtBeginEnvironment{alertblock}{\setbeamercolor{itemize item}{fg=redudesc}}
-
-	% exampleblock
-	\setbeamercolor{block title example}{fg=white,bg=gray80udesc}
-	\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize item}{fg=gray80udesc}}
-
-
-	% Variáveis para \capa e \capadetras
-	\newcommand{\titulo}[1]{\def\@titulo{#1}}
-	\newcommand{\subtitulo}[1]{\def\@subtitulo{#1}}
-	\newcommand*{\autores}[1]{\def\@autores{#1}}
-	\newcommand{\universidade}[1]{\def\@universidade{#1}}
-	\newcommand{\contato}[1]{\def\@contato{#1}}
-	\newcommand{\frase}[1]{\def\@frase{#1}}
-	\contato{}
-	\universidade{}
 
 	% Estilo da capa
 	\newcommand{\capa}{
 		{
 			\usebackgroundtemplate
 			{%
-				\includegraphics[width=\paperwidth, height=\paperheight]{style/capa.png}
+				\includegraphics[width=\paperwidth, height=\paperheight]{assets/capa.png}
 			}
 			\begin{frame}[plain]
 				\vspace{-1em}
@@ -225,10 +111,9 @@
 				\vskip 4em
 				\hfill
 				\begin{minipage}{.5\linewidth}
-					\hfill \includegraphics[width=.2\linewidth]{style/cnpq.png}
-					\hfill \includegraphics[width=.25\linewidth]{style/fapesc.png}
-					% \hfill \includegraphics[width=.25\linewidth]{style/sic.png}
-					\hfill \includegraphics[width=.2\linewidth]{style/udesc.png}
+					\hfill \includegraphics[width=.2\linewidth]{assets/icons/cnpq.png}
+					\hfill \includegraphics[width=.25\linewidth]{assets/icons/fapesc.png}
+					\hfill \includegraphics[width=.2\linewidth]{assets/icons/udesc.png}
 				\end{minipage}
 			\end{frame}
 			\makeatother
@@ -240,12 +125,12 @@
 	{
 		\usebackgroundtemplate
 		{%
-			\includegraphics[width=\paperwidth, height=\paperheight]{style/slide.png}
+			\includegraphics[width=\paperwidth, height=\paperheight]{assets/slide.png}
 		}
 		\begin{frame}{#1}{\hspace{.25em}$\vdash$ #2}
 			\begin{tikzpicture}[overlay, remember picture]
 				\node[left=0.2cm] at (current page.-27){
-						\includegraphics[height=.8em]{style/udesc_mini.png}
+						\includegraphics[height=.8em]{assets/icons/udesc_mini.png}
 					};					
 				\node[basic,fill=greenudesc,minimum width=1.3em,minimum height=1.5em,xshift=.25cm,yshift=-.59cm,draw=none]at(current page.north west){};
 			\end{tikzpicture}
@@ -260,7 +145,7 @@
 		{
 			\usebackgroundtemplate
 			{%
-				\includegraphics[width=\paperwidth, height=\paperheight]{style/secbg.png}
+				\includegraphics[width=\paperwidth, height=\paperheight]{assets/secbg.png}
 			}
 			\begin{frame}[plain]
 				\tikzset{
@@ -291,14 +176,14 @@
 	%
 	\usebackgroundtemplate
 	{%
-		\includegraphics[width=\paperwidth, height=\paperheight]{style/slide.png}
+		\includegraphics[width=\paperwidth, height=\paperheight]{assets/slide.png}
 	}
 	% Estilo da contracapa
 	\newcommand{\capadetras}[1]{
 		{
 			\usebackgroundtemplate
 			{%
-				\includegraphics[width=\paperwidth, height=\paperheight]{style/contracapa.png}
+				\includegraphics[width=\paperwidth, height=\paperheight]{assets/contracapa.png}
 			}
 			\begin{frame}[plain]
 				\vspace{-3.5em}
@@ -319,7 +204,7 @@
 				\vskip 6em
 				\hfill
 				\begin{minipage}{.5\linewidth}
-					\hfill \includegraphics[width=.3\linewidth]{style/udesc_white.png}	
+					\hfill \includegraphics[width=.3\linewidth]{assets/icons/udesc_white.png}	
 				\end{minipage}
 
 			\end{frame}
