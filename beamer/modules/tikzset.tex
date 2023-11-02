@@ -1,0 +1,79 @@
+\usepackage{tikz}
+\usepackage{varwidth}
+\usetikzlibrary {arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shadows}
+\usetikzlibrary{shadows.blur, trees}
+\usetikzlibrary{positioning}
+\tikzset{
+	invisible/.style={opacity=0},
+	visible on/.style={alt={#1{}{invisible}}},
+	alt/.code args={<#1>#2#3}{%
+		\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+		hide on/.code={\only<#1>{\color{white}}}
+	},
+	basic/.style = {
+		sibling distance=4.5cm,
+		draw,
+		rectangle
+	},
+	root/.style = {
+		basic,
+		align=center,
+		fill=greenudesc,
+		draw=none,
+		text=white,
+		blur shadow={
+			shadow blur steps=5,
+			shadow blur extra rounding=0pt,
+			shadow xshift=.5pt
+		},
+		thin,
+	},
+	level 1/.style = {
+		basic,
+		thin,
+		align=center,
+		fill=redudesc,
+		draw=none,
+		text=white,
+		% text width=11em
+	},
+	level 2/.style = {
+		basic,
+		thin,
+		align=center,
+		fill=green!30,
+		text width=7em,
+		text=black
+	},
+	level 3/.style = {
+		basic,
+		rounded corners,
+		thin,
+		align=center,
+		fill=cyan!20,
+		minimum size=5mm
+	},
+	circlenode/.style = {
+		circle,
+		draw=greenudesc,
+		fill=greenudesc!15,
+		ultra thin,
+		minimum size=7mm
+	},
+	squarednode/.style = {
+		rectangle,
+		draw=red!60,
+		fill=red!5,
+		ultra thin,
+		minimum size=5mm
+	},
+	mathnode/.style = {
+		rectangle,
+		draw=cyan!60,
+		fill=cyan!5,
+		ultra thin,
+		minimum size=.1cm
+	}
+}

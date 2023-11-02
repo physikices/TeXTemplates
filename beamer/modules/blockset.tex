@@ -1,0 +1,15 @@
+	% blocks shadows
+	\setbeamertemplate{blocks}[rounded][shadow=true]
+
+	% block
+	\setbeamercolor{block title}{fg=white,bg=greenudesc}
+	\AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=greenudesc}}
+
+	% alertblock
+	\setbeamercolor{block title alerted}{fg=white,bg=redudesc}
+	\AtBeginEnvironment{alertblock}{\setbeamercolor{itemize item}{fg=redudesc}}
+
+	% exampleblock
+	\setbeamercolor{block title example}{fg=white,bg=gray80udesc}
+	\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize item}{fg=gray80udesc}}
+
