@@ -1,0 +1,20 @@
+	% blocks shadows
+	\setbeamertemplate{blocks}[shadow=false]
+
+	% block
+	\setbeamercolor{block title}{fg=background,bg=dgreen}
+	\setbeamercolor{block body}{fg=foreground,bg=currentline}
+	\AtBeginEnvironment{block}{\setbeamercolor{itemize item}{fg=dgreen}}
+% --------------------------------------------- %I
+
+	% alertblock
+	\setbeamercolor{block title alerted}{fg=background,bg=dpink}
+	\setbeamercolor{block body alerted}{fg=foreground,bg=currentline}
+	\AtBeginEnvironment{alertblock}{\setbeamercolor{itemize item}{fg=dpink}}
+% --------------------------------------------- %
+
+	% exampleblock
+	\setbeamercolor{block title example}{fg=background,bg=dyellow}
+	\setbeamercolor{block body example}{fg=foreground,bg=currentline}
+	\AtBeginEnvironment{exampleblock}{\setbeamercolor{itemize item}{fg=dyellow}}
+

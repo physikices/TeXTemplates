@@ -1,0 +1,141 @@
+\documentclass[aspectratio=169]{beamer}
+\newcommand{\autor}{Rodrigo Nascimento}
+
+% Pacote de estilo da UDESC
+\usepackage{style/udesc}
+
+\graphicspath{{./img/}}
+
+% --------------------------------------------- %
+\input{modules/lstset.tex}
+\input{modules/pkgs.tex}
+\input{modules/tocset.tex}
+% --------------------------------------------- %
+
+\usepackage[
+  abnt-emphasize=bf,
+  abnt-and-type=e,
+  abnt-etal-text=it,
+  num,
+  overcite
+]{abntex2cite}%Citações ABNT
+\citebrackets []
+
+
+% --------------------------------------------- %
+% Início do documento
+% --------------------------------------------- %
+\begin{document}
+%% 
+% --------------------------------------------- %
+\titulo{Física de Partículas}
+\subtitulo{Cromodinâmica Quântica}
+\newcommand{\github}{github.com/physikices}
+\newcommand{\email}{rodrigo.nascimento@edu.udesc.br}
+\newcommand{\website}{}
+\frase{FMO2001}
+\universidade{Licenciatura em Física -- 2023/2}
+% --------------------------------------------- %
+\capa
+% \logo{
+% 	\begin{tikzpicture}[overlay, remember picture]
+% 		\node[left=0.2cm] at (current page.27){
+% 				\includegraphics[height=.5cm]{assets/icons/sic.png}
+% 			};
+% 	\end{tikzpicture}
+% }
+% --------------------------------------------- %
+% sumário
+% --------------------------------------------- %
+\AtBeginSection[]{
+	\begin{frame}<beamer>
+		\frametitle{Sumário\divisao}
+		\tableofcontents[hideothersubsections]
+	\end{frame}
+}
+
+\section{Seção I}
+\subsection{Frame Block}
+\subsection{Subseção I}
+\subsection{Subseção II}
+
+\section{Seção II}
+\subsection{Subseção I}
+\subsection{Subseção II}
+
+\section{Seção III}
+\subsection{Subseção I}
+\subsection{Subseção II}
+% --------------------------------------------- %
+% slides
+% --------------------------------------------- %
+\secframe{Seção I}{Subtítulo de seção}
+\begin{slide}{Seção I}{Frame Block}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{block}{Normal Block}
+			\begin{itemize}[<+(1)->]
+				\item item 1
+				\item item 2
+			\end{itemize}
+		\end{block}
+		\begin{alertblock}{Alert Block}
+			\begin{itemize}[<+(1)->]
+				\item  item 1
+				\item  item 2
+			\end{itemize}
+		\end{alertblock}
+
+		\column{0.5\textwidth}
+		\begin{block}{test}
+			\imagem{.5}{bncc_just-01}{Fonte \cite{CATARINA:2021}}
+		\end{block}
+	\end{columns}
+\end{slide}
+
+\secframe{Seção II}{Subtítulo de seção}
+\begin{slide}{Seção II}{Equações}
+	\centering
+	\begin{tikzpicture}
+		\node[root]{$R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R=T_{\mu\nu}$};
+	\end{tikzpicture}
+
+	\begin{exampleblock}{}
+		\begin{align*}
+			\begin{split}
+				\vec{\nabla}\cdot\vec{D} &= \rho_{f} \\
+				\vec{\nabla}\cdot\vec{B} &= 0	\\
+				\vec{\nabla}\times \vec{E} &= -\partial_t \vec{B}\\
+				\vec{\nabla}\times \vec{H} &= \vec{J}_{f}+\partial_t \vec{D}
+			\end{split}
+		\end{align*}	
+	\end{exampleblock}
+\end{slide}
+
+\begin{frame}[plain]
+	\begin{tikzpicture}
+		\node[basic](a1){Teste};	
+		\node[root, right=.5cm of a1](a2){Teste};
+		\node[level 1, right=.5cm of a2](a3){Teste};
+		\node[level 2, right=.5cm of a3](a4){Teste};
+		\node[level 3, right=.5cm of a4](a5){Teste};
+	\end{tikzpicture}	
+\end{frame}
+
+% --------------------------------------------- %
+\begin{frame}[allowframebreaks]
+	\frametitle{Referências\divisao}
+	\bibliography{referencias.bib}
+\end{frame}
+
+
+\contato{%
+	Contato: \\
+	\autor{} \\
+	\email{} \\
+	\github{} \\
+	\website{}
+}
+\capadetras{}
+
+\end{document}
