@@ -1,0 +1,222 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
+\usepackage[absolute,overlay]{textpos}
+\usefonttheme[onlymath]{serif}
+\usepackage{lmodern}
+\usepackage{listings}
+% ------------------------------ % 
+% modules
+% -------------------------------%
+\input{modules/colors.tex}
+\input{modules/tikzset.tex}
+\input{modules/blockset.tex}
+\input{modules/commands.tex}
+\input{modules/feynm-diagrams.tex}
+% ------------------------------ %
+
+% Legendas
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\setbeamertemplate{caption}[numbered]
+
+% Remover ícones de navegação
+\setbeamertemplate{navigation symbols}{}
+% mas mostrar número de páginas
+\addtobeamertemplate{navigation symbols}{}{%
+	\usebeamerfont{footline}%
+	\usebeamercolor[fg]{footline}%
+}
+
+\setbeamertemplate{frametitle}{%
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+		\@tempdima=\textwidth%
+		\advance\@tempdima by\beamer@leftmargin%
+		\advance\@tempdima by\beamer@rightmargin%
+		\advance\@tempdima by-1em% <- change value here
+		\hfill%
+		\begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+			\usebeamerfont{frametitle}%
+			\vbox{}\vskip-1ex%
+			\if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+			\strut\insertframetitle\strut\par%
+			{%
+				\ifx\insertframesubtitle\@empty%
+				\else%
+					{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+				\fi
+			}%
+			\vskip-1ex%
+			\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+		\end{beamercolorbox}%
+	}
+
+	\setbeamercolor{footline}{fg=currentline}
+	\setbeamerfont{footline}{series=\bfseries}
+	\setbeamertemplate{footline}{
+		\usebeamercolor[fg]{page number in head}%
+		\usebeamerfont{page number in head}%
+		\hspace{20pt}
+		\insertframenumber/\inserttotalframenumber
+		\vspace{6pt}
+	}
+
+
+
+	% Redefinir propriedades do beamer para conter cores acinzentadas
+	\setbeamersize{text margin left=45pt,text margin right=17pt}
+	\setbeamercolor{title}{fg=dcyan}
+	\setbeamercolor{frametitle}{fg=dcyan}
+	\setbeamercolor{structure}{fg=comment}
+	\setbeamercolor{normal text}{fg=foreground}
+
+
+	% Estilo da capa
+	\newcommand{\capa}{
+		{
+			\usebackgroundtemplate
+			{%
+				\includegraphics[width=\paperwidth, height=\paperheight]{assets/capa.png}
+			}
+			\begin{frame}[plain]
+				\vspace{-1em}
+
+				\makeatletter
+
+				\vskip .5em % <- ajuste de altura do campo /frase
+				\begin{beamercolorbox}[sep=3pt,right]{author}
+					\hfill \scriptsize \textbf{\textcolor{dyellow}\@frase}
+				\end{beamercolorbox}
+
+				\vskip 5.7em
+
+				\begin{beamercolorbox}[sep=5pt,right]{title}
+					\hfill \usebeamerfont{title}{\huge{\@titulo}}
+				\end{beamercolorbox}
+
+				\vskip -0.5em
+
+				\begin{beamercolorbox}[sep=5pt,right]{title}
+					\hfill \usebeamerfont{title}{\large\textcolor{dpurple}{\@subtitulo}}
+				\end{beamercolorbox}
+
+				\vskip2em
+
+				\begin{beamercolorbox}[sep=3pt,right]{author}
+					\hfill \scriptsize \textbf{\textcolor{foreground}\autor{}}
+
+					\vskip0.35em
+					\hfill {\textcolor{foreground}\@universidade}
+				\end{beamercolorbox}
+
+				\vskip 4em
+				\hfill
+				\begin{minipage}{.5\linewidth}
+					% \hfill \includegraphics[width=.2\linewidth]{assets/icons/cnpq.png}
+					% \hfill \includegraphics[width=.25\linewidth]{assets/icons/fapesc.png}
+					\hfill \includegraphics[width=.2\linewidth]{assets/icons/udesc.png}
+				\end{minipage}
+			\end{frame}
+			\makeatother
+		}
+	}
+
+	% Estilo do Slide
+	\newenvironment{slide}[2]
+	{
+		\usebackgroundtemplate
+		{%
+			\includegraphics[width=\paperwidth, height=\paperheight]{assets/slide.png}
+		}
+		\begin{frame}{#1}{\hspace{.25em}$\vdash$ #2}
+			\begin{tikzpicture}[overlay, remember picture]
+				\node[left=0.2cm] at (current page.-27){
+						\includegraphics[height=.8em]{assets/icons/udesc_mini.png}
+					};					
+				\node[basic,fill=dcyan,minimum width=1.3em,minimum height=1.5em,xshift=.25cm,yshift=-.59cm,draw=none]at(current page.north west){};
+			\end{tikzpicture}
+		}
+		{
+		\end{frame}
+
+	}
+	% 
+	% Slide de Seção
+	\newcommand{\secframe}[2]{%
+		{
+			\usebackgroundtemplate
+			{%
+				\includegraphics[width=\paperwidth, height=\paperheight]{assets/secbg.png}
+			}
+			\begin{frame}[plain]
+				\tikzset{
+					udesc greenBox/.style = {
+						thin,
+						blur shadow={
+							shadow blur steps=10,
+							shadow blur extra rounding=2pt, 
+							shadow xshift=1pt
+						},
+						rectangle,
+						minimum width=14em,
+						minimum height=20mm,
+						fill=dcyan,
+						% text right=1ex,
+						anchor=base,
+						inner sep=2ex
+					},
+				}
+				\begin{tikzpicture}[remember picture,overlay]
+					\node	[udesc greenBox, align=right, text=background](t1) at (1,-1){{\hspace{80pt}\LARGE #1}\\#2}; 
+				\end{tikzpicture}
+			\end{frame}
+		}
+	}
+
+	%	Redefinir o estilo do frame globalmente.
+	%
+	\usebackgroundtemplate
+	{%
+		\includegraphics[width=\paperwidth, height=\paperheight]{assets/slide.png}
+	}
+	% Estilo da contracapa
+	\newcommand{\capadetras}[1]{
+		{
+			\usebackgroundtemplate
+			{%
+				\includegraphics[width=\paperwidth, height=\paperheight]{assets/contracapa.png}
+			}
+			\begin{frame}[plain]
+				\vspace{-3.5em}
+
+				\begin{beamercolorbox}[sep=5pt,right]{title}
+					\usebeamerfont{title}{\huge \textcolor{gray65udesc}{#1}}
+				\end{beamercolorbox}
+
+				\vskip 10.5em
+				\vfill
+
+				\makeatletter
+				\begin{beamercolorbox}[right]{subtitle}
+					\scriptsize \textbf{\textcolor{white}{\@contato}}
+				\end{beamercolorbox}
+				\makeatother
+
+				\vskip 6em
+				\hfill
+				\begin{minipage}{.5\linewidth}
+					\hfill \includegraphics[width=.3\linewidth]{assets/icons/udesc.png}	
+				\end{minipage}
+
+			\end{frame}
+		}
+
+	}
+
+	% Automatização das imagens
+	\newcommand {\imagem}[3] {
+		\begin{figure}
+			\centering
+			\includegraphics[width=#1\linewidth,height=0.7\textheight,keepaspectratio]{#2}
+			\caption{#3}
+		\end{figure}
+	}
