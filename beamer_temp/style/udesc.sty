@@ -64,8 +64,8 @@
 
 	% Redefinir propriedades do beamer para conter cores acinzentadas
 	\setbeamersize{text margin left=45pt,text margin right=17pt}
-	\setbeamercolor{title}{fg=dcyan}
-	\setbeamercolor{frametitle}{fg=dcyan}
+	\setbeamercolor{title}{fg=primary}
+	\setbeamercolor{frametitle}{fg=primary}
 	\setbeamercolor{structure}{fg=comment}
 	\setbeamercolor{normal text}{fg=foreground}
 
@@ -84,7 +84,7 @@
 
 				\vskip .5em % <- ajuste de altura do campo /frase
 				\begin{beamercolorbox}[sep=3pt,right]{author}
-					\hfill \scriptsize \textbf{\textcolor{dyellow}\@frase}
+					\hfill \scriptsize \textbf{\textcolor{tertiary}\@frase}
 				\end{beamercolorbox}
 
 				\vskip 5.7em
@@ -96,7 +96,7 @@
 				\vskip -0.5em
 
 				\begin{beamercolorbox}[sep=5pt,right]{title}
-					\hfill \usebeamerfont{title}{\large\textcolor{dpurple}{\@subtitulo}}
+					\hfill \usebeamerfont{title}{\large\textcolor{secondary}{\@subtitulo}}
 				\end{beamercolorbox}
 
 				\vskip2em
@@ -132,7 +132,7 @@
 				\node[left=0.2cm] at (current page.-27){
 						\includegraphics[height=.8em]{assets/icons/udesc_mini.png}
 					};					
-				\node[basic,fill=dcyan,minimum width=1.3em,minimum height=1.5em,xshift=.25cm,yshift=-.59cm,draw=none]at(current page.north west){};
+				\node[basic,fill=primary,minimum width=1.3em,minimum height=1.5em,xshift=.25cm,yshift=-.59cm,draw=none]at(current page.north west){};
 			\end{tikzpicture}
 		}
 		{
@@ -159,7 +159,7 @@
 						rectangle,
 						minimum width=14em,
 						minimum height=20mm,
-						fill=dcyan,
+						fill=primary,
 						% text right=1ex,
 						anchor=base,
 						inner sep=2ex
@@ -189,7 +189,7 @@
 				\vspace{-3.5em}
 
 				\begin{beamercolorbox}[sep=5pt,right]{title}
-					\usebeamerfont{title}{\huge \textcolor{gray65udesc}{#1}}
+					\usebeamerfont{title}{\huge \textcolor{alert}{#1}}
 				\end{beamercolorbox}
 
 				\vskip 10.5em
@@ -197,7 +197,7 @@
 
 				\makeatletter
 				\begin{beamercolorbox}[right]{subtitle}
-					\scriptsize \textbf{\textcolor{white}{\@contato}}
+					\scriptsize \textbf{\textcolor{foreground}{\@contato}}
 				\end{beamercolorbox}
 				\makeatother
 
