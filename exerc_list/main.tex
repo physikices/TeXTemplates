@@ -1,0 +1,229 @@
+%%%% Define Article %%%%%%%%%%%%%%%
+\documentclass[
+  a4paper,
+	12pt
+]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Using Packages %%%%%%%%%%%%%%%
+\input{modules/packages.tex}
+\input{modules/colors.tex}
+\input{modules/commands.tex}
+\input{modules/environments.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Other Settings
+
+%%%% Plotting Settings %%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Title & Author %%%%%%%%%%%%%%%
+\title{Lista de Exercícios}
+\author{Rodrigo Nascimento}
+\input{modules/hyperset.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+\begin{center}
+	\noindent\textcolor{gray}{\rule{\textwidth}{0.5pt}}
+\end{center}
+
+
+\begin{problem}
+	Mostre que $\va{v}=\vu{e}_{x}$ e $\va{w}=\vu{e}_{y}$ são vetores lineramente independentes. Calcule também a norma dos dois vetores.	
+\end{problem}
+\textcolor{deepGreen}{\textbf{Solução:}}
+
+$\va{v}$ e $\va{w}$ serão linearmente independentes se
+\begin{dmath}
+	\alpha \va{v} + \beta \va{w} = 0\condition{com $\alpha, \beta \in \mathbb{R}$}
+\end{dmath}
+uma vez que
+\begin{align*}
+	\alpha\va{v} &= \alpha \vu{e}_{x} = \alpha
+	\begin{pmatrix}
+		1\\0	
+	\end{pmatrix}, &
+	\beta\va{w} &= \beta \vu{e}_{y} = \beta
+	\begin{pmatrix}
+		0\\1	
+	\end{pmatrix}
+\end{align*}
+tem-se que
+\begin{align*}
+	\alpha \va{v}+\beta \va{w} &= \alpha	
+	\begin{pmatrix}
+		1\\0	
+	\end{pmatrix} + \beta
+	\begin{pmatrix}
+		0\\1	
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		0\\0	
+	\end{pmatrix}\condition{se e somente se $\alpha,\beta=0$}
+\end{align*}
+logo
+\begin{dseries}[frame]
+	\mx{\va{v}=\vu{e}_{x}},	
+	\mx{\va{w}=\vu{e}_{y}}\condition{são linearmente independentes}
+\end{dseries}
+
+A norma (ou módulo) destes dois vetores é dada por
+\begin{dgroup*}
+	\begin{dmath*}
+		\norm{\va{v}} = \sqrt{\vu{e}_{x}\cdot\vu{e}_{x}}=\delta_{x x}=1
+	\end{dmath*}
+	\begin{dmath*}
+		\norm{\va{w}} = \sqrt{\vu{e}_{y}\cdot\vu{e}_{y}}=\delta_{y y}=1	
+	\end{dmath*}
+\end{dgroup*}
+
+% --------------------------------------------- %
+\begin{center}
+	\noindent\textcolor{mygray}{\rule{\textwidth}{0.5pt}}
+\end{center}
+% --------------------------------------------- %
+\begin{problem}
+	Considere os seguintes vetores no $\mathbb{R}^{2}: \va{v}=\qty(1,2)^{T}\qq{e}\va{w}=\qty(-1,1)^{T}$.
+	\begin{itemize}
+		\item[a.] Estes vetores são linearmente independentes?
+		\item[b.] Escreva qualquer vetor $\va{x}=\qty(x_{1},x_{2})$ na base dada por $\va{v}\qq{e}\va{w}$.
+	\end{itemize}
+\end{problem}
+\textcolor{deepGreen}{\textbf{Solução:}}
+\begin{itemize}
+	\item[a.] Desde que
+		\begin{align*}
+			\alpha \va{v}+\beta \va{w} &= 0\\
+			\alpha\mqty(1\\2)+\beta\mqty(-1\\1) &= 0
+		\end{align*}
+		isto é
+		\begin{equation*}
+			\begin{cases}
+				\alpha-\beta = 0\\
+				2 \alpha+\beta =0
+			\end{cases}	\implies \alpha,\beta=0\qc\forall \alpha,\beta \in \mathbb{R} 
+		\end{equation*}
+		conclui-se que $\boxed{\va{v}\qq{e}\va{w}\qq{são linearmente independentes}}$
+	\item[b.] Escolhendo arbitrariamente $\alpha=4\qq{e} \beta=6$, então $\va{x}=\qty(x_{1},x_{2})$ é dado por
+		\begin{align*}
+			\mqty(x_{1}\\ x_{2}) &= 4\mqty(1\\2)+6\mqty(-1\\1)
+		\end{align*}
+		logo $\va{x}=\qty(-2,8)^{T}$
+\end{itemize}
+% --------------------------------------------- %
+\begin{center}
+	\noindent\textcolor{mygray}{\rule{\textwidth}{0.5pt}}
+\end{center}
+% --------------------------------------------- %
+\begin{problem}
+	Determinar todos os vetores do $\R^{3}$ ortogonais ao vetor $\va{v}=\qty(2,0,1)^{T}$.
+\end{problem}
+\textcolor{deepGreen}{\textbf{Solução:}}
+\begin{definition}
+	Dois vetores quaisquer $|{u}\rangle \qq{e} |{v}\rangle$ são ortogonais se
+	\begin{align}
+		\braket{u}{v} &= 0	
+	\end{align}
+\end{definition}
+Definindo $\langle{u}|=\qty(u_{1},u_{2},u_{3})$ tem-se
+\begin{align*}
+	\braket{u}{v} &= \qty(u_{1},u_{2},u_{3})\cdot\mqty(2\\0\\1)\\
+								&= 2u_{1}+u_{3}=0\implies u_{1}=-\frac{u_{3}}{2}
+\end{align*}
+logo, qualquer vetor da forma $\langle{u}|=\qty(-u_{3}/2,u_{2},u_{3})$ será ortogonal à $|{v}\rangle$
+% --------------------------------------------- %
+\begin{center}
+	\noindent\textcolor{mygray}{\rule{\textwidth}{0.5pt}}
+\end{center}
+% --------------------------------------------- %
+\begin{problem}
+	Mostrar que vale a identidade $\qty(\va{u}\cp \va{v})\cp \va{w}=\qty(\va{w}^{T}\cdot \va{u})\cdot \va{v}-\qty(\va{w}^{T}\cdot \va{v})\cdot \va{u}$. Deduzir que $\va{u}^{T}\cdot\qty(\va{u}\cp \va{v})$	
+\end{problem}
+Considere a definição a seguir
+\begin{definition}{\label{def:prod_vetorial}}
+	O produto vetorial entre dois vetores em termos do símbolo de Levi-Civita é	
+	\begin{align}
+		\va{u}\cp \va{v} &= \sum_{i,j,k} \varepsilon_{ijk}u_{i}v_{j}\vu{e}_{k}
+	\end{align}
+\end{definition}
+deseja-se demostrar que
+\begin{align*}
+	\qty(\va{u}\cp \va{v})\cp \va{w} &= \qty(\va{w}^{T}\cdot \va{u})\cdot \va{v}-\qty(\va{w}^{T}\cdot \va{v})\cdot \va{u}
+\end{align*}
+\begin{proof}
+	Utilizando a definição \ref{def:prod_vetorial}, tem-se que
+	\begin{align*}
+		\qty(\va{u}\cp\va{v})\cp\va{w} &= \sum_{i,j,k} \varepsilon_{ijk}\qty(\va{u}\cp\va{v})_{i}w_{j}\vu{e}_{k}
+	\end{align*}
+	dado que
+	\begin{align*}
+		\boxed{
+			\qty(\va{u}\cp\va{v})_{i} = \sum_{j,k} \varepsilon_{ijk}u_{j}v_{k}
+		}
+	\end{align*}
+	ficamos com
+	\begin{align*}
+		\qty(\va{u}\cp\va{v})\cp\va{w} &= \sum_{i,j,k} \varepsilon_{ijk}\qty(\sum_{l,m} \varepsilon_{lmi}\va{u}_{l}\va{v}_{m})\va{w}_{j}\vu{e}_{k}\\
+																	 &=\sum_{i,j,k,l,m} \varepsilon_{ijk} \varepsilon_{lmi}\va{u}_{l}\va{v}_{m}\va{w}_{j}\vu{e}_{k}
+	\end{align*}
+	usando a relação
+	\begin{align*}
+		\boxed{
+			\sum_{i}\varepsilon_{ijk}\varepsilon_{lmi} = \delta_{jl}\delta_{km}-\delta_{jm}\delta_{kl}	
+		}
+	\end{align*}
+	tem-se
+	\begin{align*}
+		\qty(\va{u}\cp\va{v})\cp\va{w} &= \sum_{j,k,l,m} \qty(\delta_{jl}\delta_{km}-\delta_{jm}\delta_{kl})\va{u}_{l}\va{v}_{m}\va{w}_{j}\vu{e}_{k}\\
+																	 &= \sum_{j,k,l,m} \delta_{jl} \delta_{km}\va{u}_{l}\va{v}_{m}\va{w}_{j}\vu{e}_{k}-\sum_{j,k,l,m} \delta_{jm} \delta_{kl}\va{u}_{l}\va{v}_{m}\va{w}_{j}\vu{e}_{k}\\
+																	 &= \sum_{j,l}\va{w}_{j}\va{u}_{l} \delta_{jl}\sum_{k,m}\vu{e}_{k}\va{v}_{m} \delta_{km}-\sum_{j,m}\va{w}_{j}\va{v}_{m} \delta_{jm}\sum_{k,l}\vu{e}_{k}\va{u}_{l}
+	\end{align*}
+	usando a definição
+	\begin{definition}{\label{def:prod_escalar}}
+		Dado dois vetores $\va{u}\qq{e}\va{v}$, o produto escalar entre estes vetores é, por definição
+		\begin{align}
+			\va{u}^{T}\cdot\va{v} = \sum_{i,j}u_{i}v_{j} \delta_{ij}
+		\end{align}
+	\end{definition}
+	logo
+	\begin{align*}
+		\qty(\va{u}\cp\va{v})\cp\va{w} &= \qty(\va{w}^{T}\cdot\va{u})\va{v}-\qty(\va{w}^{T}\cdot\va{v})\va{u}
+	\end{align*}
+\end{proof}
+
+A segunda demonstração envolve o produto misto
+\begin{align*}
+	\va{u}^{T}\cdot\qty(\va{u}\cp\va{v}) &= 0
+\end{align*}
+\begin{proof}
+	Usando a definição \ref{def:prod_escalar}, devemos ter
+	\begin{align*}
+		\va{u}^{T}\cdot\qty(\va{u}\cp\va{v}) &= \sum_{i,j}u_{i}\qty(\va{u}\cp\va{v})_{j} \delta_{ij}\\
+																				 &= \sum_{i,j}u_{i}\qty(\sum_{i,k} \varepsilon_{ijk}u_{i}v_{k}) \delta_{ij}\\
+																				 &= \sum_{i,j,k}\varepsilon_{ijk}u_{i}^{2}v_{k} \delta_{ij}\\
+																				 &= \sum_{i,j,k}\varepsilon_{ijk} \delta_{ij}u_{i}^{2}v_{k}\\
+																				 &= 0  
+	\end{align*}
+
+\end{proof}
+% --------------------------------------------- %
+\begin{center}
+	\noindent\textcolor{mygray}{\rule{\textwidth}{0.5pt}}
+\end{center}
+% --------------------------------------------- %
+
+\begin{problem}
+	Usando a definição de produto vetorial em termos dos versores de base, deduzir as propriedades do produto vetorial de dois vetores qualquer.	
+\end{problem}
+
+% --------------------------------------------- %
+\begin{center}
+	\noindent\textcolor{mygray}{\rule{\textwidth}{0.5pt}}
+\end{center}
+% --------------------------------------------- %
+
+\end{document}
