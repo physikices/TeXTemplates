@@ -1,5 +1,5 @@
 # udesc-cct-latex
-[![Contínuamente em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)]
+![Em Desenvolvimento Contínuo](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
 [![autocomplete](https://codeium.com/badges/user/dolefully-immortal-guppy-69443/autocomplete)](https://codeium.com)
 
