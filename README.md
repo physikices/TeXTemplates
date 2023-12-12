@@ -1,6 +1,8 @@
 # Repositório de Trabalhos Acadêmicos em $\LaTeX$
 ![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
+[![autocomplete](https://codeium.com/badges/user/dolefully-immortal-guppy-69443/autocomplete)](https://codeium.com)
+
 
 ## Tecnologia utilizada: **abnTeX2** Modelo de Trabalho Academico em conformidade com ABNT NBR 14724:2011.
 
