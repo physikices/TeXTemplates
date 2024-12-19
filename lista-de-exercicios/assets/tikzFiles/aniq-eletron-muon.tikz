@@ -1,0 +1,17 @@
+\begin{feynhand}
+  \vertex[dot](v1) at (0,0){};
+  \vertex[dot](v2) at (2,0){};
+
+  \vertex[particle] (e_minus) [above left=of v1] {$\mathrm{e}^{-}$};
+  \vertex[particle] (e_plus) [below left=of v1] {$\mathrm{e}^{+}$};
+  \vertex[particle] (mu_plus) [above right=of v2] {$\mu^{+}$};
+  \vertex[particle] (mu_minus) [below right=of v2] {$\mu^{-}$};
+
+  \propag[antfer,mom={$k^{\prime}$}](e_plus) to (v1) {};
+  \propag[fer,mom={$k$}](e_minus) to (v1) {};
+
+  \propag[pho,mom={$q$}](v1) to (v2) {};
+
+  \propag[fer,revmom={$p^{\prime}$}](mu_plus) to (v2) {};
+  \propag[antfer,revmom={$p$}](mu_minus) to (v2) {};
+\end{feynhand}
